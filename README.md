@@ -51,6 +51,12 @@ This example budgets 24 exploratory, 1024 confirmation and 256 revision replays.
 
 ## Design choices that matter
 
+### Research context and product question
+
+ReplayHarbor builds on the prefix-restoration idea in [Delta-MFP](https://github.com/DaoyuanLi2816/delta-mfp-local-agents): examine whether a failure already recurs from the initial state or becomes reproducible after a later saved state. The source repository identifies its paper, [*Before the Fall*](https://openreview.net/forum?id=KAA8FR6fEq), as an **ICML 2026 FAGEN Workshop paper (non-archival)**. This venue describes the foundational research; ReplayHarbor's contribution is the developer workflow and extensions below.
+
+The product question is practical: **with limited replay capacity, what should a maintainer inspect next, how strong is the evidence, and what can a colleague verify?**
+
 | Decision | What it makes inspectable |
 |---|---|
 | Separate exploration and confirmation | Adaptive observations and fixed-sample evidence have distinct interpretations |
@@ -60,6 +66,12 @@ This example budgets 24 exploratory, 1024 confirmation and 256 revision replays.
 | Keep evaluation labels outside the scheduler | Sampling decisions receive prefix counts and observed outcomes |
 
 A candidate identifies a failure-rate association. Earliest failure position and causal root cause require further evidence. See the [architecture](docs/product-and-architecture.md) and [statistical protocol](docs/statistical-protocol.md).
+
+### What ReplayHarbor develops
+
+The pinned dependency supplies the synthetic environment, scripted agent, state restoration and replay primitives. ReplayHarbor develops the budget scheduler, exploration/confirmation boundary, paired revision workflow, independently recomputed handoff bundle, bounded DeepSeek adapter and local workbench. These additions connect diagnosis to an explicit next action and a reviewable developer report.
+
+The [research-to-product design note](docs/research-to-product.md) traces the problem, implementation choices, experimental lessons and next validation steps. Source reuse and new functionality are mapped to code so readers can inspect each layer.
 
 ## Evidence and current limits
 
@@ -77,8 +89,8 @@ These are engineering checks. Broad efficacy, natural user failures and support-
 
 The workbench binds to loopback and runs built-in cases. Model experiments use a separately configured local credential and capped requests. Review exported content before sharing.
 
-## Attribution and license
+## Maintenance and license
 
-Created and maintained by **Oscar-Williams**, with AI-assisted implementation and documented experiments. [Delta-MFP](https://github.com/DaoyuanLi2816/delta-mfp-local-agents) by Daoyuan Li supplies the synthetic environment, scripted agent and replay primitives. ReplayHarbor adds scheduling, evidence semantics, confirmation, handoff verification, model adaptation and the workbench. See [third-party notices](THIRD_PARTY_NOTICES.md) and [upstream lock](upstream.lock.json).
+Created and maintained by **Oscar-Williams**, with AI-assisted implementation and documented experiments. Dependency revision and license details are recorded in [upstream.lock.json](upstream.lock.json) and [third-party notices](THIRD_PARTY_NOTICES.md).
 
-Licensed under [MIT](LICENSE). Upstream copyright and license are preserved.
+Licensed under [MIT](LICENSE).

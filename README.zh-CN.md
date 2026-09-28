@@ -43,6 +43,16 @@ python -m replayharbor.cli serve --project-root .
 
 ## 实验与经验
 
+### 研究背景与产品问题
+
+ReplayHarbor 基于 [Delta-MFP](https://github.com/DaoyuanLi2816/delta-mfp-local-agents) 的前缀状态恢复思路：检查失败是否从初始状态就会复现，或在后续某个已保存状态之后变得可复现。该仓库将相关论文 [*Before the Fall*](https://openreview.net/forum?id=KAA8FR6fEq) 标注为 **ICML 2026 FAGEN Workshop 论文（non-archival）**。这一学术背景属于基础研究；ReplayHarbor 的增量集中在开发者工作流与下述扩展。
+
+产品问题是：**复验预算有限时，维护者下一步应检查什么、证据足够支持哪种判断、同事能够独立核验哪些结果？**
+
+固定版本依赖提供合成环境、脚本 Agent、状态恢复与复验基础。ReplayHarbor 新增预算调度、探索与独立确认的分层、配对修订工作流、可重新计算的问题包、受限 DeepSeek 接入与本地工作台。每项能力连接具体的开发者决策，并保留验证依据。
+
+[从研究到产品的设计记录](docs/research-to-product.md)进一步说明问题选择、实现位置、实验发现与后续验证。
+
 25 个模拟案例形成 225 次探索运行，自适应策略的不足完整保留。固定契约真实模型对照中，正常续跑 2/2 成功，错误时区反馈 0/2 成功，恢复后重新澄清 2/2 成功。另一项 16 任务审计发现缺少脚本故障分支，诊断准确率分母为零；该记录作为正常控制检查保存。
 
 这些结果验证工程流程，跨任务效果与真实用户价值仍需进一步研究。具体材料见[英文首页证据索引](README.md#evidence-and-current-limits)、[架构](docs/product-and-architecture.md)和[统计协议](docs/statistical-protocol.md)。
@@ -53,4 +63,4 @@ python -m replayharbor.cli serve --project-root .
 
 欢迎提供接入障碍、可公开的合成复现案例、文档修订和带验证依据的改进。问题报告请说明预期、实际结果、版本、预算和复现步骤，先清除凭据与私人内容。
 
-Oscar-Williams 创建和维护本项目，使用 AI 辅助实现与实验。Delta-MFP 作者 Daoyuan Li 提供环境、脚本 Agent 与复验基础；ReplayHarbor 新增调度、证据语义、独立确认、交接验证、模型适配与工作台。项目采用 [MIT](LICENSE)，保留[上游归属](THIRD_PARTY_NOTICES.md)。
+Oscar-Williams 创建和维护本项目，使用 AI 辅助实现与实验。项目采用 [MIT](LICENSE)；依赖版本与许可信息见 [upstream.lock.json](upstream.lock.json) 和[第三方许可声明](THIRD_PARTY_NOTICES.md)。
