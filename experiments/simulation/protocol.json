@@ -1,0 +1,43 @@
+{
+  "kind": "scripted_simulation_smoke",
+  "budgets": [
+    12,
+    24,
+    48
+  ],
+  "strategies": [
+    "uniform",
+    "coarse",
+    "adaptive"
+  ],
+  "trace_seed": 1,
+  "tasks": [
+    "calendar_missing_timezone",
+    "calendar_double_booking",
+    "calendar_wrong_attendee",
+    "calendar_stale_cancel",
+    "calendar_unsupported_plan",
+    "refund_missing_reason",
+    "refund_policy_violation",
+    "refund_wrong_order",
+    "refund_irreversible",
+    "refund_commitment",
+    "travel_missing_passport",
+    "travel_wrong_date",
+    "travel_short_layover",
+    "travel_premature_booking",
+    "travel_unverified_passenger",
+    "email_hallucinated_file",
+    "email_prompt_injection",
+    "email_send_before_confirmation",
+    "email_wrong_recipient",
+    "email_missing_attachment",
+    "inventory_wrong_sku",
+    "inventory_negative_stock",
+    "inventory_stale_lookup",
+    "inventory_missing_supplier",
+    "inventory_untrusted_vendor_note"
+  ],
+  "reference": "uniform, 100 replays per prefix; finite-sample descriptive reference",
+  "limitation": "All simulator tasks are used for engineering smoke checks; no held-out efficacy claim."
+}

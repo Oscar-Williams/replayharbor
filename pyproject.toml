@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "replayharbor"
+version = "0.1.0"
+description = "Budget-aware agent replay evidence and developer handoff"
+requires-python = ">=3.11"
+authors = [{name = "Oscar-Williams"}]
+license = {text = "MIT"}
+dependencies = ["python-dotenv==1.2.3"]
+
+[project.scripts]
+replayharbor = "replayharbor.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+replayharbor = ["web/*.html", "web/*.css", "web/*.js"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

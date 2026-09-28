@@ -1,0 +1,12 @@
+{
+  "date": "2026-09-28T02:26:16.354616+08:00",
+  "tests_passed": 32,
+  "confirmation_attempts": 1024,
+  "revision_attempts": 256,
+  "exploration_attempts": 24,
+  "model_calls": 0,
+  "paid_spend_cny": 0,
+  "new_bundle_verified": true,
+  "v1_bundle_verified": true,
+  "source": "examples/confirmed-case/report.json"
+}

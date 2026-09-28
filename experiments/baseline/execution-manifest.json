@@ -1,0 +1,18 @@
+{
+  "checked_at": "2026-09-28T02:08:52.835085+08:00",
+  "upstream_sha": "c01fbafca01d34e5e7492d48f856d75bf6f7b8ec",
+  "upstream_tests": 13,
+  "project_tests": 19,
+  "released_evidence_verifier_exit": 0,
+  "bundle_recomputation": "passed",
+  "simulator_tasks": 25,
+  "diagnostic_runs": 225,
+  "model_calls": 0,
+  "paid_spend_cny": 0,
+  "limits": [
+    "scripted simulator only",
+    "no held-out efficacy claim",
+    "no real user trial",
+    "no remote publish"
+  ]
+}

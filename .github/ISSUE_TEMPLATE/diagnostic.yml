@@ -1,0 +1,38 @@
+name: Diagnostic feedback / 诊断反馈
+description: Report a blocked workflow with reproducible evidence.
+title: "[Diagnostic] "
+body:
+  - type: textarea
+    id: job
+    attributes:
+      label: Your task / 希望完成的任务
+      description: Describe your expected outcome and where progress stopped.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction / 复现条件
+      description: Include command, package revision, task ID, strategy and stage budgets. Remove secrets and private inputs.
+    validations:
+      required: true
+  - type: dropdown
+    id: stage
+    attributes:
+      label: Blocked stage / 阻塞环节
+      options:
+        - First example / 首次接入
+        - Exploration / 候选探索
+        - Confirmation / 独立确认
+        - Revision comparison / 修订比较
+        - Export or verification / 导出与复算
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence and verification / 证据与核验
+      description: Attach a reviewed synthetic bundle or verification output. State observed status and expected behavior.
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact / 影响
+      description: Explain the decision this prevents you from making and any workaround.

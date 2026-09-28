@@ -1,0 +1,80 @@
+{
+  "tasks": 16,
+  "reference_candidate_stable": 16,
+  "reference_candidate_unstable": 0,
+  "stable_reference_candidate_present": 0,
+  "comparisons": [
+    {
+      "budget": 12,
+      "strategy": "uniform",
+      "denominator": 16,
+      "agreement_including_both_none": 16,
+      "candidate_present_agreement": 0,
+      "mean_coverage": 1.0
+    },
+    {
+      "budget": 12,
+      "strategy": "coarse",
+      "denominator": 16,
+      "agreement_including_both_none": 16,
+      "candidate_present_agreement": 0,
+      "mean_coverage": 0.8833333333333335
+    },
+    {
+      "budget": 12,
+      "strategy": "adaptive",
+      "denominator": 16,
+      "agreement_including_both_none": 16,
+      "candidate_present_agreement": 0,
+      "mean_coverage": 1.0
+    },
+    {
+      "budget": 24,
+      "strategy": "uniform",
+      "denominator": 16,
+      "agreement_including_both_none": 16,
+      "candidate_present_agreement": 0,
+      "mean_coverage": 1.0
+    },
+    {
+      "budget": 24,
+      "strategy": "coarse",
+      "denominator": 16,
+      "agreement_including_both_none": 16,
+      "candidate_present_agreement": 0,
+      "mean_coverage": 0.8833333333333335
+    },
+    {
+      "budget": 24,
+      "strategy": "adaptive",
+      "denominator": 16,
+      "agreement_including_both_none": 16,
+      "candidate_present_agreement": 0,
+      "mean_coverage": 1.0
+    },
+    {
+      "budget": 48,
+      "strategy": "uniform",
+      "denominator": 16,
+      "agreement_including_both_none": 16,
+      "candidate_present_agreement": 0,
+      "mean_coverage": 1.0
+    },
+    {
+      "budget": 48,
+      "strategy": "coarse",
+      "denominator": 16,
+      "agreement_including_both_none": 16,
+      "candidate_present_agreement": 0,
+      "mean_coverage": 0.8833333333333335
+    },
+    {
+      "budget": 48,
+      "strategy": "adaptive",
+      "denominator": 16,
+      "agreement_including_both_none": 16,
+      "candidate_present_agreement": 0,
+      "mean_coverage": 1.0
+    }
+  ]
+}

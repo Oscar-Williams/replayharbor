@@ -1,0 +1,39 @@
+{
+  "upstream_sha": "c01fbafca01d34e5e7492d48f856d75bf6f7b8ec",
+  "selected": [
+    "calendar_hard_00",
+    "calendar_hard_01",
+    "calendar_medium_00",
+    "calendar_medium_01",
+    "file_hard_00",
+    "file_hard_01",
+    "file_medium_00",
+    "file_medium_01",
+    "inventory_hard_00",
+    "inventory_hard_01",
+    "inventory_medium_00",
+    "inventory_medium_01",
+    "refund_hard_00",
+    "refund_hard_01",
+    "refund_medium_00",
+    "refund_medium_01"
+  ],
+  "split": "all easy groups reserved for development; first two IDs per medium/hard family group for evaluation",
+  "trace_seed": 1,
+  "budgets": [
+    12,
+    24,
+    48
+  ],
+  "strategies": [
+    "uniform",
+    "coarse",
+    "adaptive"
+  ],
+  "reference_n_per_prefix": 128,
+  "reference_seeds": [
+    8100000,
+    9100000
+  ],
+  "limitation": "prospective transfer check after initial 25-task study; shared scripted mechanisms and correlated templates; reference is finite and is not ground truth; no tuning from these results"
+}

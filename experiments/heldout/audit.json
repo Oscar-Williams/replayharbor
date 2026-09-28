@@ -1,0 +1,87 @@
+{
+  "timing": "post-run capability audit; original protocol preserved",
+  "efficacy_eligible": false,
+  "positive_reference_denominator": 0,
+  "tasks": [
+    {
+      "task": "calendar_medium_00",
+      "error_rate": 0.0,
+      "faulty_steps": 0
+    },
+    {
+      "task": "calendar_medium_01",
+      "error_rate": 0.0,
+      "faulty_steps": 0
+    },
+    {
+      "task": "calendar_hard_00",
+      "error_rate": 0.0,
+      "faulty_steps": 0
+    },
+    {
+      "task": "calendar_hard_01",
+      "error_rate": 0.0,
+      "faulty_steps": 0
+    },
+    {
+      "task": "refund_medium_00",
+      "error_rate": 0.0,
+      "faulty_steps": 0
+    },
+    {
+      "task": "refund_medium_01",
+      "error_rate": 0.0,
+      "faulty_steps": 0
+    },
+    {
+      "task": "refund_hard_00",
+      "error_rate": 0.0,
+      "faulty_steps": 0
+    },
+    {
+      "task": "refund_hard_01",
+      "error_rate": 0.0,
+      "faulty_steps": 0
+    },
+    {
+      "task": "file_medium_00",
+      "error_rate": 0.0,
+      "faulty_steps": 0
+    },
+    {
+      "task": "file_medium_01",
+      "error_rate": 0.0,
+      "faulty_steps": 0
+    },
+    {
+      "task": "file_hard_00",
+      "error_rate": 0.0,
+      "faulty_steps": 0
+    },
+    {
+      "task": "file_hard_01",
+      "error_rate": 0.0,
+      "faulty_steps": 0
+    },
+    {
+      "task": "inventory_medium_00",
+      "error_rate": 0.0,
+      "faulty_steps": 0
+    },
+    {
+      "task": "inventory_medium_01",
+      "error_rate": 0.0,
+      "faulty_steps": 0
+    },
+    {
+      "task": "inventory_hard_00",
+      "error_rate": 0.0,
+      "faulty_steps": 0
+    },
+    {
+      "task": "inventory_hard_01",
+      "error_rate": 0.0,
+      "faulty_steps": 0
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "date": "2026-09-28",
+  "source_sha256": "77a235fb96226e80d6bc81153057943f30c3a32f78b2cc2bdb7ec8c7f71f7a93",
+  "task": "calendar_missing_timezone",
+  "contract": "explicit-date-v2",
+  "order": [
+    "normal",
+    "corrupted_observation",
+    "rollback",
+    "rollback",
+    "corrupted_observation",
+    "normal"
+  ],
+  "max_steps": 4,
+  "max_calls": 24,
+  "cap_usd": 0.1,
+  "intervention": "replace observed clarification answer with UTC; rollback restores pre-clarification snapshot",
+  "scope": "two repeats per engineering control; synthetic environment; no causal generalization or accuracy estimate"
+}

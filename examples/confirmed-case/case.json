@@ -1,0 +1,21 @@
+{
+  "task_id": "calendar_missing_timezone",
+  "trace_seed": 1,
+  "provenance": "upstream_scripted_simulator",
+  "upstream_sha": "c01fbafca01d34e5e7492d48f856d75bf6f7b8ec",
+  "config": {
+    "budget": 24,
+    "strategy": "adaptive",
+    "seed": 1000,
+    "p_fail": 0.7,
+    "delta": 0.3
+  },
+  "workflow_options": {
+    "confirmation_n": 512,
+    "confirmation_budget": 1024,
+    "repair_type": "clarify",
+    "comparison_prefix": 1,
+    "comparison_n": 128,
+    "comparison_budget": 256
+  }
+}

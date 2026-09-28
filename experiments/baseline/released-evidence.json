@@ -1,0 +1,172 @@
+{
+  "checks": {
+    "calibration_cells": {
+      "actual": 152,
+      "expected": 152,
+      "ok": true
+    },
+    "cross_model_agreement": {
+      "actual": 14,
+      "expected": 14,
+      "ok": true
+    },
+    "cross_model_regimes": {
+      "actual": {
+        "nontrivial_delta_mfp": 5,
+        "unstable": 19
+      },
+      "expected": {
+        "nontrivial_delta_mfp": 5,
+        "unstable": 19
+      },
+      "ok": true
+    },
+    "natural_regimes": {
+      "actual": {
+        "nontrivial_delta_mfp": 13,
+        "prefix0": 5,
+        "unstable": 7
+      },
+      "expected": {
+        "nontrivial_delta_mfp": 13,
+        "prefix0": 5,
+        "unstable": 7
+      },
+      "ok": true
+    },
+    "natural_trace_count": {
+      "actual": 25,
+      "expected": 25,
+      "ok": true
+    },
+    "paper_sha256": {
+      "actual": "e6cfd8175309be22e04de88a644d34997cf8b0713f9cbb00a0ecf235cfc3e6d6",
+      "expected": "e6cfd8175309be22e04de88a644d34997cf8b0713f9cbb00a0ecf235cfc3e6d6",
+      "ok": true
+    },
+    "persistent_distance": {
+      "actual": {
+        "0": 40
+      },
+      "expected": {
+        "0": 40
+      },
+      "ok": true
+    },
+    "persistent_regimes": {
+      "actual": {
+        "nontrivial_delta_mfp": 40
+      },
+      "expected": {
+        "nontrivial_delta_mfp": 40
+      },
+      "ok": true
+    },
+    "persistent_trace_count": {
+      "actual": 40,
+      "expected": 40,
+      "ok": true
+    },
+    "repair_persistent_none": {
+      "actual": "0.000",
+      "expected": "0.000",
+      "ok": true
+    },
+    "repair_persistent_retry": {
+      "actual": "1.000",
+      "expected": "1.000",
+      "ok": true
+    },
+    "repair_soft_none": {
+      "actual": "0.667",
+      "expected": "0.667",
+      "ok": true
+    },
+    "repair_soft_oracle": {
+      "actual": "0.083",
+      "expected": "0.083",
+      "ok": true
+    },
+    "soft_n2_nontrivial_survivors": {
+      "actual": 1,
+      "expected": 1,
+      "ok": true
+    },
+    "soft_n2_regimes": {
+      "actual": {
+        "nontrivial_delta_mfp": 7,
+        "prefix0": 20,
+        "unstable": 23
+      },
+      "expected": {
+        "nontrivial_delta_mfp": 7,
+        "prefix0": 20,
+        "unstable": 23
+      },
+      "ok": true
+    },
+    "soft_n5_regimes": {
+      "actual": {
+        "nontrivial_delta_mfp": 7,
+        "prefix0": 22,
+        "unstable": 21
+      },
+      "expected": {
+        "nontrivial_delta_mfp": 7,
+        "prefix0": 22,
+        "unstable": 21
+      },
+      "ok": true
+    },
+    "soft_same_regime": {
+      "actual": 37,
+      "expected": 37,
+      "ok": true
+    },
+    "soft_switched_into_nontrivial": {
+      "actual": 6,
+      "expected": 6,
+      "ok": true
+    },
+    "soft_trace_count": {
+      "actual": 50,
+      "expected": 50,
+      "ok": true
+    },
+    "tasks_by_difficulty": {
+      "actual": {
+        "easy": 40,
+        "hard": 40,
+        "medium": 40
+      },
+      "expected": {
+        "easy": 40,
+        "hard": 40,
+        "medium": 40
+      },
+      "ok": true
+    },
+    "tasks_by_family": {
+      "actual": {
+        "calendar": 30,
+        "file_email": 30,
+        "inventory": 30,
+        "refund": 30
+      },
+      "expected": {
+        "calendar": 30,
+        "file_email": 30,
+        "inventory": 30,
+        "refund": 30
+      },
+      "ok": true
+    },
+    "tasks_total": {
+      "actual": 120,
+      "expected": 120,
+      "ok": true
+    }
+  },
+  "ok": true,
+  "paper": "Before the Fall: Delta Minimal Failing Prefixes for Local Tool-Use Agent Failures"
+}

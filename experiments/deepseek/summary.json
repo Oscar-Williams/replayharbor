@@ -1,0 +1,59 @@
+{
+  "date": "2026-09-28",
+  "runs": [
+    {
+      "run": 1,
+      "contract": "original-v1",
+      "calls": 13,
+      "baseline_success": false,
+      "replay_successes": 0,
+      "replay_count": 3,
+      "estimated_usd": 0.0020892000000000007,
+      "prompt_tokens": 5016,
+      "completion_tokens": 487
+    },
+    {
+      "run": 2,
+      "contract": "explicit-date-v2",
+      "calls": 13,
+      "baseline_success": true,
+      "replay_successes": 3,
+      "replay_count": 3,
+      "estimated_usd": 0.0023502,
+      "prompt_tokens": 5738,
+      "completion_tokens": 524
+    }
+  ],
+  "agent_calls": 46,
+  "agent_estimated_usd": 0.0080376,
+  "earlier_probe": {
+    "calls": 1,
+    "prompt_tokens": 11,
+    "completion_tokens": 1,
+    "peak_uncached_estimate_usd": 4.5e-06
+  },
+  "tests_passed": 54,
+  "credential_exact_matches_outside_env": 0,
+  "git_synchronized": false,
+  "controlled_failure": {
+    "calls": 20,
+    "estimated_usd": 0.0035981999999999993,
+    "conditions": [
+      {
+        "condition": "normal",
+        "successes": 2,
+        "total": 2
+      },
+      {
+        "condition": "corrupted_observation",
+        "successes": 0,
+        "total": 2
+      },
+      {
+        "condition": "rollback",
+        "successes": 2,
+        "total": 2
+      }
+    ]
+  }
+}

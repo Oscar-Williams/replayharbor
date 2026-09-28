@@ -1,0 +1,3987 @@
+{
+  "protocol": {
+    "date": "2026-09-28",
+    "source_sha256": "77a235fb96226e80d6bc81153057943f30c3a32f78b2cc2bdb7ec8c7f71f7a93",
+    "task": "calendar_missing_timezone",
+    "contract": "explicit-date-v2",
+    "order": [
+      "normal",
+      "corrupted_observation",
+      "rollback",
+      "rollback",
+      "corrupted_observation",
+      "normal"
+    ],
+    "max_steps": 4,
+    "max_calls": 24,
+    "cap_usd": 0.1,
+    "intervention": "replace observed clarification answer with UTC; rollback restores pre-clarification snapshot",
+    "scope": "two repeats per engineering control; synthetic environment; no causal generalization or accuracy estimate"
+  },
+  "runs": [
+    {
+      "condition": "normal",
+      "run": {
+        "status": "final",
+        "final_success": true,
+        "evaluation": {
+          "success": true,
+          "failure_reasons": [],
+          "trigger_class": "information",
+          "side_effects": [],
+          "required_effects": [
+            "booked_correct_event"
+          ],
+          "achieved_effects": [
+            "booked_correct_event"
+          ]
+        },
+        "steps": [
+          {
+            "action": {
+              "kind": "tool",
+              "tool_name": "search_availability",
+              "tool_args": {
+                "attendee": "Lee",
+                "date": "2026-05-09",
+                "time": "10:00",
+                "timezone": "America/Los_Angeles"
+              },
+              "memory_write": {},
+              "final_answer": null,
+              "note": ""
+            },
+            "tool_result": {
+              "requested": {
+                "attendee": "Lee",
+                "date": "2026-05-09",
+                "time": "10:00",
+                "timezone": "America/Los_Angeles"
+              },
+              "conflict": false,
+              "conflicts": []
+            },
+            "prompt_sha256": "82119d9dfb33d301142de8eee2bfcde5a3636ee59511e31a87cadac06c1de518"
+          },
+          {
+            "action": {
+              "kind": "tool",
+              "tool_name": "create_event",
+              "tool_args": {
+                "attendee": "Lee",
+                "date": "2026-05-09",
+                "time": "10:00",
+                "timezone": "America/Los_Angeles"
+              },
+              "memory_write": {},
+              "final_answer": null,
+              "note": ""
+            },
+            "tool_result": {
+              "created": true,
+              "event": {
+                "attendee": "Lee",
+                "date": "2026-05-09",
+                "time": "10:00",
+                "timezone": "America/Los_Angeles",
+                "event_id": "evt-1"
+              }
+            },
+            "prompt_sha256": "714d79cbc85a6a4491ac73f3758a8ac4653618ade86f85d96e9439cd2e761826"
+          },
+          {
+            "action": {
+              "kind": "final",
+              "tool_name": null,
+              "tool_args": {},
+              "memory_write": {},
+              "final_answer": "Booked the design review with Lee on 2026-05-09 at 10:00 America/Los_Angeles (event_id: evt-1).",
+              "note": ""
+            },
+            "tool_result": {
+              "kind": "final",
+              "answer": "Booked the design review with Lee on 2026-05-09 at 10:00 America/Los_Angeles (event_id: evt-1)."
+            },
+            "prompt_sha256": "257831961340471e5b7ae07b257b946bcb5b14702546ce99f94d6dc49a8a945d"
+          }
+        ],
+        "snapshots": [
+          {
+            "env": {
+              "task_id": "calendar_missing_timezone",
+              "family": "calendar",
+              "calendar": {
+                "events": [],
+                "availability": []
+              },
+              "orders": {},
+              "travel": {
+                "flights": [],
+                "reservations": []
+              },
+              "files": {},
+              "emails": {
+                "drafts": [],
+                "sent": []
+              },
+              "inventory": {},
+              "effects": [],
+              "violations": [],
+              "side_effects": [],
+              "tool_calls": 1,
+              "last_tool_result": {
+                "kind": "clarification",
+                "field": "timezone",
+                "answer": "America/Los_Angeles"
+              },
+              "last_verified_state": {
+                "task_id": "calendar_missing_timezone",
+                "family": "calendar",
+                "calendar": {
+                  "events": [],
+                  "availability": []
+                },
+                "orders": {},
+                "travel": {
+                  "flights": [],
+                  "reservations": []
+                },
+                "files": {},
+                "emails": {
+                  "drafts": [],
+                  "sent": []
+                },
+                "inventory": {},
+                "effects": [],
+                "violations": [],
+                "side_effects": [],
+                "tool_calls": 1,
+                "last_tool_result": {
+                  "kind": "clarification",
+                  "field": "timezone",
+                  "answer": "America/Los_Angeles"
+                },
+                "last_verified_state": null
+              }
+            },
+            "history": [
+              {
+                "action": {
+                  "kind": "clarify",
+                  "tool_name": null,
+                  "tool_args": {
+                    "field": "timezone"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "kind": "clarification",
+                  "field": "timezone",
+                  "answer": "America/Los_Angeles"
+                },
+                "prompt_sha256": "cd6dbb2c86b565a9f80813c7b477741626b01200eb34b78aa4f202add0539a98"
+              }
+            ]
+          },
+          {
+            "env": {
+              "task_id": "calendar_missing_timezone",
+              "family": "calendar",
+              "calendar": {
+                "events": [],
+                "availability": []
+              },
+              "orders": {},
+              "travel": {
+                "flights": [],
+                "reservations": []
+              },
+              "files": {},
+              "emails": {
+                "drafts": [],
+                "sent": []
+              },
+              "inventory": {},
+              "effects": [],
+              "violations": [],
+              "side_effects": [],
+              "tool_calls": 2,
+              "last_tool_result": {
+                "requested": {
+                  "attendee": "Lee",
+                  "date": "2026-05-09",
+                  "time": "10:00",
+                  "timezone": "America/Los_Angeles"
+                },
+                "conflict": false,
+                "conflicts": []
+              },
+              "last_verified_state": {
+                "task_id": "calendar_missing_timezone",
+                "family": "calendar",
+                "calendar": {
+                  "events": [],
+                  "availability": []
+                },
+                "orders": {},
+                "travel": {
+                  "flights": [],
+                  "reservations": []
+                },
+                "files": {},
+                "emails": {
+                  "drafts": [],
+                  "sent": []
+                },
+                "inventory": {},
+                "effects": [],
+                "violations": [],
+                "side_effects": [],
+                "tool_calls": 2,
+                "last_tool_result": {
+                  "requested": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "conflict": false,
+                  "conflicts": []
+                },
+                "last_verified_state": null
+              }
+            },
+            "history": [
+              {
+                "action": {
+                  "kind": "clarify",
+                  "tool_name": null,
+                  "tool_args": {
+                    "field": "timezone"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "kind": "clarification",
+                  "field": "timezone",
+                  "answer": "America/Los_Angeles"
+                },
+                "prompt_sha256": "cd6dbb2c86b565a9f80813c7b477741626b01200eb34b78aa4f202add0539a98"
+              },
+              {
+                "action": {
+                  "kind": "tool",
+                  "tool_name": "search_availability",
+                  "tool_args": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "requested": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "conflict": false,
+                  "conflicts": []
+                },
+                "prompt_sha256": "82119d9dfb33d301142de8eee2bfcde5a3636ee59511e31a87cadac06c1de518"
+              }
+            ]
+          },
+          {
+            "env": {
+              "task_id": "calendar_missing_timezone",
+              "family": "calendar",
+              "calendar": {
+                "events": [
+                  {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles",
+                    "event_id": "evt-1"
+                  }
+                ],
+                "availability": []
+              },
+              "orders": {},
+              "travel": {
+                "flights": [],
+                "reservations": []
+              },
+              "files": {},
+              "emails": {
+                "drafts": [],
+                "sent": []
+              },
+              "inventory": {},
+              "effects": [
+                "booked_correct_event"
+              ],
+              "violations": [],
+              "side_effects": [],
+              "tool_calls": 3,
+              "last_tool_result": {
+                "created": true,
+                "event": {
+                  "attendee": "Lee",
+                  "date": "2026-05-09",
+                  "time": "10:00",
+                  "timezone": "America/Los_Angeles",
+                  "event_id": "evt-1"
+                }
+              },
+              "last_verified_state": {
+                "task_id": "calendar_missing_timezone",
+                "family": "calendar",
+                "calendar": {
+                  "events": [
+                    {
+                      "attendee": "Lee",
+                      "date": "2026-05-09",
+                      "time": "10:00",
+                      "timezone": "America/Los_Angeles",
+                      "event_id": "evt-1"
+                    }
+                  ],
+                  "availability": []
+                },
+                "orders": {},
+                "travel": {
+                  "flights": [],
+                  "reservations": []
+                },
+                "files": {},
+                "emails": {
+                  "drafts": [],
+                  "sent": []
+                },
+                "inventory": {},
+                "effects": [
+                  "booked_correct_event"
+                ],
+                "violations": [],
+                "side_effects": [],
+                "tool_calls": 3,
+                "last_tool_result": {
+                  "created": true,
+                  "event": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles",
+                    "event_id": "evt-1"
+                  }
+                },
+                "last_verified_state": null
+              }
+            },
+            "history": [
+              {
+                "action": {
+                  "kind": "clarify",
+                  "tool_name": null,
+                  "tool_args": {
+                    "field": "timezone"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "kind": "clarification",
+                  "field": "timezone",
+                  "answer": "America/Los_Angeles"
+                },
+                "prompt_sha256": "cd6dbb2c86b565a9f80813c7b477741626b01200eb34b78aa4f202add0539a98"
+              },
+              {
+                "action": {
+                  "kind": "tool",
+                  "tool_name": "search_availability",
+                  "tool_args": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "requested": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "conflict": false,
+                  "conflicts": []
+                },
+                "prompt_sha256": "82119d9dfb33d301142de8eee2bfcde5a3636ee59511e31a87cadac06c1de518"
+              },
+              {
+                "action": {
+                  "kind": "tool",
+                  "tool_name": "create_event",
+                  "tool_args": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "created": true,
+                  "event": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles",
+                    "event_id": "evt-1"
+                  }
+                },
+                "prompt_sha256": "714d79cbc85a6a4491ac73f3758a8ac4653618ade86f85d96e9439cd2e761826"
+              }
+            ]
+          },
+          {
+            "env": {
+              "task_id": "calendar_missing_timezone",
+              "family": "calendar",
+              "calendar": {
+                "events": [
+                  {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles",
+                    "event_id": "evt-1"
+                  }
+                ],
+                "availability": []
+              },
+              "orders": {},
+              "travel": {
+                "flights": [],
+                "reservations": []
+              },
+              "files": {},
+              "emails": {
+                "drafts": [],
+                "sent": []
+              },
+              "inventory": {},
+              "effects": [
+                "booked_correct_event"
+              ],
+              "violations": [],
+              "side_effects": [],
+              "tool_calls": 3,
+              "last_tool_result": {
+                "kind": "final",
+                "answer": "Booked the design review with Lee on 2026-05-09 at 10:00 America/Los_Angeles (event_id: evt-1)."
+              },
+              "last_verified_state": {
+                "task_id": "calendar_missing_timezone",
+                "family": "calendar",
+                "calendar": {
+                  "events": [
+                    {
+                      "attendee": "Lee",
+                      "date": "2026-05-09",
+                      "time": "10:00",
+                      "timezone": "America/Los_Angeles",
+                      "event_id": "evt-1"
+                    }
+                  ],
+                  "availability": []
+                },
+                "orders": {},
+                "travel": {
+                  "flights": [],
+                  "reservations": []
+                },
+                "files": {},
+                "emails": {
+                  "drafts": [],
+                  "sent": []
+                },
+                "inventory": {},
+                "effects": [
+                  "booked_correct_event"
+                ],
+                "violations": [],
+                "side_effects": [],
+                "tool_calls": 3,
+                "last_tool_result": {
+                  "kind": "final",
+                  "answer": "Booked the design review with Lee on 2026-05-09 at 10:00 America/Los_Angeles (event_id: evt-1)."
+                },
+                "last_verified_state": null
+              }
+            },
+            "history": [
+              {
+                "action": {
+                  "kind": "clarify",
+                  "tool_name": null,
+                  "tool_args": {
+                    "field": "timezone"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "kind": "clarification",
+                  "field": "timezone",
+                  "answer": "America/Los_Angeles"
+                },
+                "prompt_sha256": "cd6dbb2c86b565a9f80813c7b477741626b01200eb34b78aa4f202add0539a98"
+              },
+              {
+                "action": {
+                  "kind": "tool",
+                  "tool_name": "search_availability",
+                  "tool_args": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "requested": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "conflict": false,
+                  "conflicts": []
+                },
+                "prompt_sha256": "82119d9dfb33d301142de8eee2bfcde5a3636ee59511e31a87cadac06c1de518"
+              },
+              {
+                "action": {
+                  "kind": "tool",
+                  "tool_name": "create_event",
+                  "tool_args": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "created": true,
+                  "event": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles",
+                    "event_id": "evt-1"
+                  }
+                },
+                "prompt_sha256": "714d79cbc85a6a4491ac73f3758a8ac4653618ade86f85d96e9439cd2e761826"
+              },
+              {
+                "action": {
+                  "kind": "final",
+                  "tool_name": null,
+                  "tool_args": {},
+                  "memory_write": {},
+                  "final_answer": "Booked the design review with Lee on 2026-05-09 at 10:00 America/Los_Angeles (event_id: evt-1).",
+                  "note": ""
+                },
+                "tool_result": {
+                  "kind": "final",
+                  "answer": "Booked the design review with Lee on 2026-05-09 at 10:00 America/Los_Angeles (event_id: evt-1)."
+                },
+                "prompt_sha256": "257831961340471e5b7ae07b257b946bcb5b14702546ce99f94d6dc49a8a945d"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "condition": "corrupted_observation",
+      "run": {
+        "status": "final",
+        "final_success": false,
+        "evaluation": {
+          "success": false,
+          "failure_reasons": [
+            "missing_required_effects:booked_correct_event",
+            "wrong_timezone"
+          ],
+          "trigger_class": "information",
+          "side_effects": [
+            "wrong_timezone"
+          ],
+          "required_effects": [
+            "booked_correct_event"
+          ],
+          "achieved_effects": [
+            "bad_timezone_event"
+          ]
+        },
+        "steps": [
+          {
+            "action": {
+              "kind": "tool",
+              "tool_name": "search_availability",
+              "tool_args": {
+                "attendee": "Lee",
+                "date": "2026-05-09",
+                "time": "10:00",
+                "timezone": "UTC"
+              },
+              "memory_write": {},
+              "final_answer": null,
+              "note": ""
+            },
+            "tool_result": {
+              "requested": {
+                "attendee": "Lee",
+                "date": "2026-05-09",
+                "time": "10:00",
+                "timezone": "UTC"
+              },
+              "conflict": false,
+              "conflicts": []
+            },
+            "prompt_sha256": "f4a1e4c2255321b4a13b9b5e7a11fb55c182911018334f7138b9ac9051feb230"
+          },
+          {
+            "action": {
+              "kind": "tool",
+              "tool_name": "create_event",
+              "tool_args": {
+                "attendee": "Lee",
+                "date": "2026-05-09",
+                "time": "10:00",
+                "timezone": "UTC"
+              },
+              "memory_write": {},
+              "final_answer": null,
+              "note": ""
+            },
+            "tool_result": {
+              "created": true,
+              "event": {
+                "attendee": "Lee",
+                "date": "2026-05-09",
+                "time": "10:00",
+                "timezone": "UTC",
+                "event_id": "evt-1"
+              }
+            },
+            "prompt_sha256": "8c092851fffe4b8c2f862a699b36b6ea9504a8299e3a5685d63f01a55dc9a576"
+          },
+          {
+            "action": {
+              "kind": "final",
+              "tool_name": null,
+              "tool_args": {},
+              "memory_write": {},
+              "final_answer": "Booked the design review with Lee on 2026-05-09 at 10:00 UTC (event_id: evt-1).",
+              "note": ""
+            },
+            "tool_result": {
+              "kind": "final",
+              "answer": "Booked the design review with Lee on 2026-05-09 at 10:00 UTC (event_id: evt-1)."
+            },
+            "prompt_sha256": "1cc68c8203f899f42d4ffbb4c7a3d30583e9c1a99f70d6a5b4887667156935c9"
+          }
+        ],
+        "snapshots": [
+          {
+            "env": {
+              "task_id": "calendar_missing_timezone",
+              "family": "calendar",
+              "calendar": {
+                "events": [],
+                "availability": []
+              },
+              "orders": {},
+              "travel": {
+                "flights": [],
+                "reservations": []
+              },
+              "files": {},
+              "emails": {
+                "drafts": [],
+                "sent": []
+              },
+              "inventory": {},
+              "effects": [],
+              "violations": [],
+              "side_effects": [],
+              "tool_calls": 1,
+              "last_tool_result": {
+                "kind": "clarification",
+                "field": "timezone",
+                "answer": "America/Los_Angeles"
+              },
+              "last_verified_state": {
+                "task_id": "calendar_missing_timezone",
+                "family": "calendar",
+                "calendar": {
+                  "events": [],
+                  "availability": []
+                },
+                "orders": {},
+                "travel": {
+                  "flights": [],
+                  "reservations": []
+                },
+                "files": {},
+                "emails": {
+                  "drafts": [],
+                  "sent": []
+                },
+                "inventory": {},
+                "effects": [],
+                "violations": [],
+                "side_effects": [],
+                "tool_calls": 1,
+                "last_tool_result": {
+                  "kind": "clarification",
+                  "field": "timezone",
+                  "answer": "America/Los_Angeles"
+                },
+                "last_verified_state": null
+              }
+            },
+            "history": [
+              {
+                "action": {
+                  "kind": "clarify",
+                  "tool_name": null,
+                  "tool_args": {
+                    "field": "timezone"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "kind": "clarification",
+                  "field": "timezone",
+                  "answer": "UTC"
+                },
+                "prompt_sha256": "cd6dbb2c86b565a9f80813c7b477741626b01200eb34b78aa4f202add0539a98"
+              }
+            ]
+          },
+          {
+            "env": {
+              "task_id": "calendar_missing_timezone",
+              "family": "calendar",
+              "calendar": {
+                "events": [],
+                "availability": []
+              },
+              "orders": {},
+              "travel": {
+                "flights": [],
+                "reservations": []
+              },
+              "files": {},
+              "emails": {
+                "drafts": [],
+                "sent": []
+              },
+              "inventory": {},
+              "effects": [],
+              "violations": [],
+              "side_effects": [],
+              "tool_calls": 2,
+              "last_tool_result": {
+                "requested": {
+                  "attendee": "Lee",
+                  "date": "2026-05-09",
+                  "time": "10:00",
+                  "timezone": "UTC"
+                },
+                "conflict": false,
+                "conflicts": []
+              },
+              "last_verified_state": {
+                "task_id": "calendar_missing_timezone",
+                "family": "calendar",
+                "calendar": {
+                  "events": [],
+                  "availability": []
+                },
+                "orders": {},
+                "travel": {
+                  "flights": [],
+                  "reservations": []
+                },
+                "files": {},
+                "emails": {
+                  "drafts": [],
+                  "sent": []
+                },
+                "inventory": {},
+                "effects": [],
+                "violations": [],
+                "side_effects": [],
+                "tool_calls": 2,
+                "last_tool_result": {
+                  "requested": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "UTC"
+                  },
+                  "conflict": false,
+                  "conflicts": []
+                },
+                "last_verified_state": null
+              }
+            },
+            "history": [
+              {
+                "action": {
+                  "kind": "clarify",
+                  "tool_name": null,
+                  "tool_args": {
+                    "field": "timezone"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "kind": "clarification",
+                  "field": "timezone",
+                  "answer": "UTC"
+                },
+                "prompt_sha256": "cd6dbb2c86b565a9f80813c7b477741626b01200eb34b78aa4f202add0539a98"
+              },
+              {
+                "action": {
+                  "kind": "tool",
+                  "tool_name": "search_availability",
+                  "tool_args": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "UTC"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "requested": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "UTC"
+                  },
+                  "conflict": false,
+                  "conflicts": []
+                },
+                "prompt_sha256": "f4a1e4c2255321b4a13b9b5e7a11fb55c182911018334f7138b9ac9051feb230"
+              }
+            ]
+          },
+          {
+            "env": {
+              "task_id": "calendar_missing_timezone",
+              "family": "calendar",
+              "calendar": {
+                "events": [
+                  {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "UTC",
+                    "event_id": "evt-1"
+                  }
+                ],
+                "availability": []
+              },
+              "orders": {},
+              "travel": {
+                "flights": [],
+                "reservations": []
+              },
+              "files": {},
+              "emails": {
+                "drafts": [],
+                "sent": []
+              },
+              "inventory": {},
+              "effects": [
+                "bad_timezone_event"
+              ],
+              "violations": [
+                "wrong_timezone"
+              ],
+              "side_effects": [
+                "wrong_timezone"
+              ],
+              "tool_calls": 3,
+              "last_tool_result": {
+                "created": true,
+                "event": {
+                  "attendee": "Lee",
+                  "date": "2026-05-09",
+                  "time": "10:00",
+                  "timezone": "UTC",
+                  "event_id": "evt-1"
+                }
+              },
+              "last_verified_state": {
+                "task_id": "calendar_missing_timezone",
+                "family": "calendar",
+                "calendar": {
+                  "events": [],
+                  "availability": []
+                },
+                "orders": {},
+                "travel": {
+                  "flights": [],
+                  "reservations": []
+                },
+                "files": {},
+                "emails": {
+                  "drafts": [],
+                  "sent": []
+                },
+                "inventory": {},
+                "effects": [],
+                "violations": [],
+                "side_effects": [],
+                "tool_calls": 2,
+                "last_tool_result": {
+                  "requested": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "UTC"
+                  },
+                  "conflict": false,
+                  "conflicts": []
+                },
+                "last_verified_state": null
+              }
+            },
+            "history": [
+              {
+                "action": {
+                  "kind": "clarify",
+                  "tool_name": null,
+                  "tool_args": {
+                    "field": "timezone"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "kind": "clarification",
+                  "field": "timezone",
+                  "answer": "UTC"
+                },
+                "prompt_sha256": "cd6dbb2c86b565a9f80813c7b477741626b01200eb34b78aa4f202add0539a98"
+              },
+              {
+                "action": {
+                  "kind": "tool",
+                  "tool_name": "search_availability",
+                  "tool_args": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "UTC"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "requested": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "UTC"
+                  },
+                  "conflict": false,
+                  "conflicts": []
+                },
+                "prompt_sha256": "f4a1e4c2255321b4a13b9b5e7a11fb55c182911018334f7138b9ac9051feb230"
+              },
+              {
+                "action": {
+                  "kind": "tool",
+                  "tool_name": "create_event",
+                  "tool_args": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "UTC"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "created": true,
+                  "event": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "UTC",
+                    "event_id": "evt-1"
+                  }
+                },
+                "prompt_sha256": "8c092851fffe4b8c2f862a699b36b6ea9504a8299e3a5685d63f01a55dc9a576"
+              }
+            ]
+          },
+          {
+            "env": {
+              "task_id": "calendar_missing_timezone",
+              "family": "calendar",
+              "calendar": {
+                "events": [
+                  {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "UTC",
+                    "event_id": "evt-1"
+                  }
+                ],
+                "availability": []
+              },
+              "orders": {},
+              "travel": {
+                "flights": [],
+                "reservations": []
+              },
+              "files": {},
+              "emails": {
+                "drafts": [],
+                "sent": []
+              },
+              "inventory": {},
+              "effects": [
+                "bad_timezone_event"
+              ],
+              "violations": [
+                "wrong_timezone"
+              ],
+              "side_effects": [
+                "wrong_timezone"
+              ],
+              "tool_calls": 3,
+              "last_tool_result": {
+                "kind": "final",
+                "answer": "Booked the design review with Lee on 2026-05-09 at 10:00 UTC (event_id: evt-1)."
+              },
+              "last_verified_state": {
+                "task_id": "calendar_missing_timezone",
+                "family": "calendar",
+                "calendar": {
+                  "events": [],
+                  "availability": []
+                },
+                "orders": {},
+                "travel": {
+                  "flights": [],
+                  "reservations": []
+                },
+                "files": {},
+                "emails": {
+                  "drafts": [],
+                  "sent": []
+                },
+                "inventory": {},
+                "effects": [],
+                "violations": [],
+                "side_effects": [],
+                "tool_calls": 2,
+                "last_tool_result": {
+                  "requested": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "UTC"
+                  },
+                  "conflict": false,
+                  "conflicts": []
+                },
+                "last_verified_state": null
+              }
+            },
+            "history": [
+              {
+                "action": {
+                  "kind": "clarify",
+                  "tool_name": null,
+                  "tool_args": {
+                    "field": "timezone"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "kind": "clarification",
+                  "field": "timezone",
+                  "answer": "UTC"
+                },
+                "prompt_sha256": "cd6dbb2c86b565a9f80813c7b477741626b01200eb34b78aa4f202add0539a98"
+              },
+              {
+                "action": {
+                  "kind": "tool",
+                  "tool_name": "search_availability",
+                  "tool_args": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "UTC"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "requested": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "UTC"
+                  },
+                  "conflict": false,
+                  "conflicts": []
+                },
+                "prompt_sha256": "f4a1e4c2255321b4a13b9b5e7a11fb55c182911018334f7138b9ac9051feb230"
+              },
+              {
+                "action": {
+                  "kind": "tool",
+                  "tool_name": "create_event",
+                  "tool_args": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "UTC"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "created": true,
+                  "event": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "UTC",
+                    "event_id": "evt-1"
+                  }
+                },
+                "prompt_sha256": "8c092851fffe4b8c2f862a699b36b6ea9504a8299e3a5685d63f01a55dc9a576"
+              },
+              {
+                "action": {
+                  "kind": "final",
+                  "tool_name": null,
+                  "tool_args": {},
+                  "memory_write": {},
+                  "final_answer": "Booked the design review with Lee on 2026-05-09 at 10:00 UTC (event_id: evt-1).",
+                  "note": ""
+                },
+                "tool_result": {
+                  "kind": "final",
+                  "answer": "Booked the design review with Lee on 2026-05-09 at 10:00 UTC (event_id: evt-1)."
+                },
+                "prompt_sha256": "1cc68c8203f899f42d4ffbb4c7a3d30583e9c1a99f70d6a5b4887667156935c9"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "condition": "rollback",
+      "run": {
+        "status": "final",
+        "final_success": true,
+        "evaluation": {
+          "success": true,
+          "failure_reasons": [],
+          "trigger_class": "information",
+          "side_effects": [],
+          "required_effects": [
+            "booked_correct_event"
+          ],
+          "achieved_effects": [
+            "booked_correct_event"
+          ]
+        },
+        "steps": [
+          {
+            "action": {
+              "kind": "clarify",
+              "tool_name": null,
+              "tool_args": {
+                "field": "timezone"
+              },
+              "memory_write": {},
+              "final_answer": null,
+              "note": ""
+            },
+            "tool_result": {
+              "kind": "clarification",
+              "field": "timezone",
+              "answer": "America/Los_Angeles"
+            },
+            "prompt_sha256": "cd6dbb2c86b565a9f80813c7b477741626b01200eb34b78aa4f202add0539a98"
+          },
+          {
+            "action": {
+              "kind": "tool",
+              "tool_name": "search_availability",
+              "tool_args": {
+                "attendee": "Lee",
+                "date": "2026-05-09",
+                "time": "10:00",
+                "timezone": "America/Los_Angeles"
+              },
+              "memory_write": {},
+              "final_answer": null,
+              "note": ""
+            },
+            "tool_result": {
+              "requested": {
+                "attendee": "Lee",
+                "date": "2026-05-09",
+                "time": "10:00",
+                "timezone": "America/Los_Angeles"
+              },
+              "conflict": false,
+              "conflicts": []
+            },
+            "prompt_sha256": "82119d9dfb33d301142de8eee2bfcde5a3636ee59511e31a87cadac06c1de518"
+          },
+          {
+            "action": {
+              "kind": "tool",
+              "tool_name": "create_event",
+              "tool_args": {
+                "attendee": "Lee",
+                "date": "2026-05-09",
+                "time": "10:00",
+                "timezone": "America/Los_Angeles"
+              },
+              "memory_write": {},
+              "final_answer": null,
+              "note": ""
+            },
+            "tool_result": {
+              "created": true,
+              "event": {
+                "attendee": "Lee",
+                "date": "2026-05-09",
+                "time": "10:00",
+                "timezone": "America/Los_Angeles",
+                "event_id": "evt-1"
+              }
+            },
+            "prompt_sha256": "714d79cbc85a6a4491ac73f3758a8ac4653618ade86f85d96e9439cd2e761826"
+          },
+          {
+            "action": {
+              "kind": "final",
+              "tool_name": null,
+              "tool_args": {},
+              "memory_write": {},
+              "final_answer": "Booked the design review with Lee on 2026-05-09 at 10:00 America/Los_Angeles (event_id: evt-1).",
+              "note": ""
+            },
+            "tool_result": {
+              "kind": "final",
+              "answer": "Booked the design review with Lee on 2026-05-09 at 10:00 America/Los_Angeles (event_id: evt-1)."
+            },
+            "prompt_sha256": "257831961340471e5b7ae07b257b946bcb5b14702546ce99f94d6dc49a8a945d"
+          }
+        ],
+        "snapshots": [
+          {
+            "env": {
+              "task_id": "calendar_missing_timezone",
+              "family": "calendar",
+              "calendar": {
+                "events": [],
+                "availability": []
+              },
+              "orders": {},
+              "travel": {
+                "flights": [],
+                "reservations": []
+              },
+              "files": {},
+              "emails": {
+                "drafts": [],
+                "sent": []
+              },
+              "inventory": {},
+              "effects": [],
+              "violations": [],
+              "side_effects": [],
+              "tool_calls": 0,
+              "last_tool_result": null,
+              "last_verified_state": {
+                "task_id": "calendar_missing_timezone",
+                "family": "calendar",
+                "calendar": {
+                  "events": [],
+                  "availability": []
+                },
+                "orders": {},
+                "travel": {
+                  "flights": [],
+                  "reservations": []
+                },
+                "files": {},
+                "emails": {
+                  "drafts": [],
+                  "sent": []
+                },
+                "inventory": {},
+                "effects": [],
+                "violations": [],
+                "side_effects": [],
+                "tool_calls": 0,
+                "last_tool_result": null,
+                "last_verified_state": null
+              }
+            },
+            "history": []
+          },
+          {
+            "env": {
+              "task_id": "calendar_missing_timezone",
+              "family": "calendar",
+              "calendar": {
+                "events": [],
+                "availability": []
+              },
+              "orders": {},
+              "travel": {
+                "flights": [],
+                "reservations": []
+              },
+              "files": {},
+              "emails": {
+                "drafts": [],
+                "sent": []
+              },
+              "inventory": {},
+              "effects": [],
+              "violations": [],
+              "side_effects": [],
+              "tool_calls": 1,
+              "last_tool_result": {
+                "kind": "clarification",
+                "field": "timezone",
+                "answer": "America/Los_Angeles"
+              },
+              "last_verified_state": {
+                "task_id": "calendar_missing_timezone",
+                "family": "calendar",
+                "calendar": {
+                  "events": [],
+                  "availability": []
+                },
+                "orders": {},
+                "travel": {
+                  "flights": [],
+                  "reservations": []
+                },
+                "files": {},
+                "emails": {
+                  "drafts": [],
+                  "sent": []
+                },
+                "inventory": {},
+                "effects": [],
+                "violations": [],
+                "side_effects": [],
+                "tool_calls": 1,
+                "last_tool_result": {
+                  "kind": "clarification",
+                  "field": "timezone",
+                  "answer": "America/Los_Angeles"
+                },
+                "last_verified_state": null
+              }
+            },
+            "history": [
+              {
+                "action": {
+                  "kind": "clarify",
+                  "tool_name": null,
+                  "tool_args": {
+                    "field": "timezone"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "kind": "clarification",
+                  "field": "timezone",
+                  "answer": "America/Los_Angeles"
+                },
+                "prompt_sha256": "cd6dbb2c86b565a9f80813c7b477741626b01200eb34b78aa4f202add0539a98"
+              }
+            ]
+          },
+          {
+            "env": {
+              "task_id": "calendar_missing_timezone",
+              "family": "calendar",
+              "calendar": {
+                "events": [],
+                "availability": []
+              },
+              "orders": {},
+              "travel": {
+                "flights": [],
+                "reservations": []
+              },
+              "files": {},
+              "emails": {
+                "drafts": [],
+                "sent": []
+              },
+              "inventory": {},
+              "effects": [],
+              "violations": [],
+              "side_effects": [],
+              "tool_calls": 2,
+              "last_tool_result": {
+                "requested": {
+                  "attendee": "Lee",
+                  "date": "2026-05-09",
+                  "time": "10:00",
+                  "timezone": "America/Los_Angeles"
+                },
+                "conflict": false,
+                "conflicts": []
+              },
+              "last_verified_state": {
+                "task_id": "calendar_missing_timezone",
+                "family": "calendar",
+                "calendar": {
+                  "events": [],
+                  "availability": []
+                },
+                "orders": {},
+                "travel": {
+                  "flights": [],
+                  "reservations": []
+                },
+                "files": {},
+                "emails": {
+                  "drafts": [],
+                  "sent": []
+                },
+                "inventory": {},
+                "effects": [],
+                "violations": [],
+                "side_effects": [],
+                "tool_calls": 2,
+                "last_tool_result": {
+                  "requested": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "conflict": false,
+                  "conflicts": []
+                },
+                "last_verified_state": null
+              }
+            },
+            "history": [
+              {
+                "action": {
+                  "kind": "clarify",
+                  "tool_name": null,
+                  "tool_args": {
+                    "field": "timezone"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "kind": "clarification",
+                  "field": "timezone",
+                  "answer": "America/Los_Angeles"
+                },
+                "prompt_sha256": "cd6dbb2c86b565a9f80813c7b477741626b01200eb34b78aa4f202add0539a98"
+              },
+              {
+                "action": {
+                  "kind": "tool",
+                  "tool_name": "search_availability",
+                  "tool_args": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "requested": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "conflict": false,
+                  "conflicts": []
+                },
+                "prompt_sha256": "82119d9dfb33d301142de8eee2bfcde5a3636ee59511e31a87cadac06c1de518"
+              }
+            ]
+          },
+          {
+            "env": {
+              "task_id": "calendar_missing_timezone",
+              "family": "calendar",
+              "calendar": {
+                "events": [
+                  {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles",
+                    "event_id": "evt-1"
+                  }
+                ],
+                "availability": []
+              },
+              "orders": {},
+              "travel": {
+                "flights": [],
+                "reservations": []
+              },
+              "files": {},
+              "emails": {
+                "drafts": [],
+                "sent": []
+              },
+              "inventory": {},
+              "effects": [
+                "booked_correct_event"
+              ],
+              "violations": [],
+              "side_effects": [],
+              "tool_calls": 3,
+              "last_tool_result": {
+                "created": true,
+                "event": {
+                  "attendee": "Lee",
+                  "date": "2026-05-09",
+                  "time": "10:00",
+                  "timezone": "America/Los_Angeles",
+                  "event_id": "evt-1"
+                }
+              },
+              "last_verified_state": {
+                "task_id": "calendar_missing_timezone",
+                "family": "calendar",
+                "calendar": {
+                  "events": [
+                    {
+                      "attendee": "Lee",
+                      "date": "2026-05-09",
+                      "time": "10:00",
+                      "timezone": "America/Los_Angeles",
+                      "event_id": "evt-1"
+                    }
+                  ],
+                  "availability": []
+                },
+                "orders": {},
+                "travel": {
+                  "flights": [],
+                  "reservations": []
+                },
+                "files": {},
+                "emails": {
+                  "drafts": [],
+                  "sent": []
+                },
+                "inventory": {},
+                "effects": [
+                  "booked_correct_event"
+                ],
+                "violations": [],
+                "side_effects": [],
+                "tool_calls": 3,
+                "last_tool_result": {
+                  "created": true,
+                  "event": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles",
+                    "event_id": "evt-1"
+                  }
+                },
+                "last_verified_state": null
+              }
+            },
+            "history": [
+              {
+                "action": {
+                  "kind": "clarify",
+                  "tool_name": null,
+                  "tool_args": {
+                    "field": "timezone"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "kind": "clarification",
+                  "field": "timezone",
+                  "answer": "America/Los_Angeles"
+                },
+                "prompt_sha256": "cd6dbb2c86b565a9f80813c7b477741626b01200eb34b78aa4f202add0539a98"
+              },
+              {
+                "action": {
+                  "kind": "tool",
+                  "tool_name": "search_availability",
+                  "tool_args": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "requested": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "conflict": false,
+                  "conflicts": []
+                },
+                "prompt_sha256": "82119d9dfb33d301142de8eee2bfcde5a3636ee59511e31a87cadac06c1de518"
+              },
+              {
+                "action": {
+                  "kind": "tool",
+                  "tool_name": "create_event",
+                  "tool_args": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "created": true,
+                  "event": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles",
+                    "event_id": "evt-1"
+                  }
+                },
+                "prompt_sha256": "714d79cbc85a6a4491ac73f3758a8ac4653618ade86f85d96e9439cd2e761826"
+              }
+            ]
+          },
+          {
+            "env": {
+              "task_id": "calendar_missing_timezone",
+              "family": "calendar",
+              "calendar": {
+                "events": [
+                  {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles",
+                    "event_id": "evt-1"
+                  }
+                ],
+                "availability": []
+              },
+              "orders": {},
+              "travel": {
+                "flights": [],
+                "reservations": []
+              },
+              "files": {},
+              "emails": {
+                "drafts": [],
+                "sent": []
+              },
+              "inventory": {},
+              "effects": [
+                "booked_correct_event"
+              ],
+              "violations": [],
+              "side_effects": [],
+              "tool_calls": 3,
+              "last_tool_result": {
+                "kind": "final",
+                "answer": "Booked the design review with Lee on 2026-05-09 at 10:00 America/Los_Angeles (event_id: evt-1)."
+              },
+              "last_verified_state": {
+                "task_id": "calendar_missing_timezone",
+                "family": "calendar",
+                "calendar": {
+                  "events": [
+                    {
+                      "attendee": "Lee",
+                      "date": "2026-05-09",
+                      "time": "10:00",
+                      "timezone": "America/Los_Angeles",
+                      "event_id": "evt-1"
+                    }
+                  ],
+                  "availability": []
+                },
+                "orders": {},
+                "travel": {
+                  "flights": [],
+                  "reservations": []
+                },
+                "files": {},
+                "emails": {
+                  "drafts": [],
+                  "sent": []
+                },
+                "inventory": {},
+                "effects": [
+                  "booked_correct_event"
+                ],
+                "violations": [],
+                "side_effects": [],
+                "tool_calls": 3,
+                "last_tool_result": {
+                  "kind": "final",
+                  "answer": "Booked the design review with Lee on 2026-05-09 at 10:00 America/Los_Angeles (event_id: evt-1)."
+                },
+                "last_verified_state": null
+              }
+            },
+            "history": [
+              {
+                "action": {
+                  "kind": "clarify",
+                  "tool_name": null,
+                  "tool_args": {
+                    "field": "timezone"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "kind": "clarification",
+                  "field": "timezone",
+                  "answer": "America/Los_Angeles"
+                },
+                "prompt_sha256": "cd6dbb2c86b565a9f80813c7b477741626b01200eb34b78aa4f202add0539a98"
+              },
+              {
+                "action": {
+                  "kind": "tool",
+                  "tool_name": "search_availability",
+                  "tool_args": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "requested": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "conflict": false,
+                  "conflicts": []
+                },
+                "prompt_sha256": "82119d9dfb33d301142de8eee2bfcde5a3636ee59511e31a87cadac06c1de518"
+              },
+              {
+                "action": {
+                  "kind": "tool",
+                  "tool_name": "create_event",
+                  "tool_args": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "created": true,
+                  "event": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles",
+                    "event_id": "evt-1"
+                  }
+                },
+                "prompt_sha256": "714d79cbc85a6a4491ac73f3758a8ac4653618ade86f85d96e9439cd2e761826"
+              },
+              {
+                "action": {
+                  "kind": "final",
+                  "tool_name": null,
+                  "tool_args": {},
+                  "memory_write": {},
+                  "final_answer": "Booked the design review with Lee on 2026-05-09 at 10:00 America/Los_Angeles (event_id: evt-1).",
+                  "note": ""
+                },
+                "tool_result": {
+                  "kind": "final",
+                  "answer": "Booked the design review with Lee on 2026-05-09 at 10:00 America/Los_Angeles (event_id: evt-1)."
+                },
+                "prompt_sha256": "257831961340471e5b7ae07b257b946bcb5b14702546ce99f94d6dc49a8a945d"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "condition": "rollback",
+      "run": {
+        "status": "final",
+        "final_success": true,
+        "evaluation": {
+          "success": true,
+          "failure_reasons": [],
+          "trigger_class": "information",
+          "side_effects": [],
+          "required_effects": [
+            "booked_correct_event"
+          ],
+          "achieved_effects": [
+            "booked_correct_event"
+          ]
+        },
+        "steps": [
+          {
+            "action": {
+              "kind": "clarify",
+              "tool_name": null,
+              "tool_args": {
+                "field": "timezone"
+              },
+              "memory_write": {},
+              "final_answer": null,
+              "note": ""
+            },
+            "tool_result": {
+              "kind": "clarification",
+              "field": "timezone",
+              "answer": "America/Los_Angeles"
+            },
+            "prompt_sha256": "cd6dbb2c86b565a9f80813c7b477741626b01200eb34b78aa4f202add0539a98"
+          },
+          {
+            "action": {
+              "kind": "tool",
+              "tool_name": "search_availability",
+              "tool_args": {
+                "attendee": "Lee",
+                "date": "2026-05-09",
+                "time": "10:00",
+                "timezone": "America/Los_Angeles"
+              },
+              "memory_write": {},
+              "final_answer": null,
+              "note": ""
+            },
+            "tool_result": {
+              "requested": {
+                "attendee": "Lee",
+                "date": "2026-05-09",
+                "time": "10:00",
+                "timezone": "America/Los_Angeles"
+              },
+              "conflict": false,
+              "conflicts": []
+            },
+            "prompt_sha256": "82119d9dfb33d301142de8eee2bfcde5a3636ee59511e31a87cadac06c1de518"
+          },
+          {
+            "action": {
+              "kind": "tool",
+              "tool_name": "create_event",
+              "tool_args": {
+                "attendee": "Lee",
+                "date": "2026-05-09",
+                "time": "10:00",
+                "timezone": "America/Los_Angeles"
+              },
+              "memory_write": {},
+              "final_answer": null,
+              "note": ""
+            },
+            "tool_result": {
+              "created": true,
+              "event": {
+                "attendee": "Lee",
+                "date": "2026-05-09",
+                "time": "10:00",
+                "timezone": "America/Los_Angeles",
+                "event_id": "evt-1"
+              }
+            },
+            "prompt_sha256": "714d79cbc85a6a4491ac73f3758a8ac4653618ade86f85d96e9439cd2e761826"
+          },
+          {
+            "action": {
+              "kind": "final",
+              "tool_name": null,
+              "tool_args": {},
+              "memory_write": {},
+              "final_answer": "Booked the design review with Lee on 2026-05-09 at 10:00 America/Los_Angeles (event_id: evt-1).",
+              "note": ""
+            },
+            "tool_result": {
+              "kind": "final",
+              "answer": "Booked the design review with Lee on 2026-05-09 at 10:00 America/Los_Angeles (event_id: evt-1)."
+            },
+            "prompt_sha256": "257831961340471e5b7ae07b257b946bcb5b14702546ce99f94d6dc49a8a945d"
+          }
+        ],
+        "snapshots": [
+          {
+            "env": {
+              "task_id": "calendar_missing_timezone",
+              "family": "calendar",
+              "calendar": {
+                "events": [],
+                "availability": []
+              },
+              "orders": {},
+              "travel": {
+                "flights": [],
+                "reservations": []
+              },
+              "files": {},
+              "emails": {
+                "drafts": [],
+                "sent": []
+              },
+              "inventory": {},
+              "effects": [],
+              "violations": [],
+              "side_effects": [],
+              "tool_calls": 0,
+              "last_tool_result": null,
+              "last_verified_state": {
+                "task_id": "calendar_missing_timezone",
+                "family": "calendar",
+                "calendar": {
+                  "events": [],
+                  "availability": []
+                },
+                "orders": {},
+                "travel": {
+                  "flights": [],
+                  "reservations": []
+                },
+                "files": {},
+                "emails": {
+                  "drafts": [],
+                  "sent": []
+                },
+                "inventory": {},
+                "effects": [],
+                "violations": [],
+                "side_effects": [],
+                "tool_calls": 0,
+                "last_tool_result": null,
+                "last_verified_state": null
+              }
+            },
+            "history": []
+          },
+          {
+            "env": {
+              "task_id": "calendar_missing_timezone",
+              "family": "calendar",
+              "calendar": {
+                "events": [],
+                "availability": []
+              },
+              "orders": {},
+              "travel": {
+                "flights": [],
+                "reservations": []
+              },
+              "files": {},
+              "emails": {
+                "drafts": [],
+                "sent": []
+              },
+              "inventory": {},
+              "effects": [],
+              "violations": [],
+              "side_effects": [],
+              "tool_calls": 1,
+              "last_tool_result": {
+                "kind": "clarification",
+                "field": "timezone",
+                "answer": "America/Los_Angeles"
+              },
+              "last_verified_state": {
+                "task_id": "calendar_missing_timezone",
+                "family": "calendar",
+                "calendar": {
+                  "events": [],
+                  "availability": []
+                },
+                "orders": {},
+                "travel": {
+                  "flights": [],
+                  "reservations": []
+                },
+                "files": {},
+                "emails": {
+                  "drafts": [],
+                  "sent": []
+                },
+                "inventory": {},
+                "effects": [],
+                "violations": [],
+                "side_effects": [],
+                "tool_calls": 1,
+                "last_tool_result": {
+                  "kind": "clarification",
+                  "field": "timezone",
+                  "answer": "America/Los_Angeles"
+                },
+                "last_verified_state": null
+              }
+            },
+            "history": [
+              {
+                "action": {
+                  "kind": "clarify",
+                  "tool_name": null,
+                  "tool_args": {
+                    "field": "timezone"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "kind": "clarification",
+                  "field": "timezone",
+                  "answer": "America/Los_Angeles"
+                },
+                "prompt_sha256": "cd6dbb2c86b565a9f80813c7b477741626b01200eb34b78aa4f202add0539a98"
+              }
+            ]
+          },
+          {
+            "env": {
+              "task_id": "calendar_missing_timezone",
+              "family": "calendar",
+              "calendar": {
+                "events": [],
+                "availability": []
+              },
+              "orders": {},
+              "travel": {
+                "flights": [],
+                "reservations": []
+              },
+              "files": {},
+              "emails": {
+                "drafts": [],
+                "sent": []
+              },
+              "inventory": {},
+              "effects": [],
+              "violations": [],
+              "side_effects": [],
+              "tool_calls": 2,
+              "last_tool_result": {
+                "requested": {
+                  "attendee": "Lee",
+                  "date": "2026-05-09",
+                  "time": "10:00",
+                  "timezone": "America/Los_Angeles"
+                },
+                "conflict": false,
+                "conflicts": []
+              },
+              "last_verified_state": {
+                "task_id": "calendar_missing_timezone",
+                "family": "calendar",
+                "calendar": {
+                  "events": [],
+                  "availability": []
+                },
+                "orders": {},
+                "travel": {
+                  "flights": [],
+                  "reservations": []
+                },
+                "files": {},
+                "emails": {
+                  "drafts": [],
+                  "sent": []
+                },
+                "inventory": {},
+                "effects": [],
+                "violations": [],
+                "side_effects": [],
+                "tool_calls": 2,
+                "last_tool_result": {
+                  "requested": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "conflict": false,
+                  "conflicts": []
+                },
+                "last_verified_state": null
+              }
+            },
+            "history": [
+              {
+                "action": {
+                  "kind": "clarify",
+                  "tool_name": null,
+                  "tool_args": {
+                    "field": "timezone"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "kind": "clarification",
+                  "field": "timezone",
+                  "answer": "America/Los_Angeles"
+                },
+                "prompt_sha256": "cd6dbb2c86b565a9f80813c7b477741626b01200eb34b78aa4f202add0539a98"
+              },
+              {
+                "action": {
+                  "kind": "tool",
+                  "tool_name": "search_availability",
+                  "tool_args": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "requested": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "conflict": false,
+                  "conflicts": []
+                },
+                "prompt_sha256": "82119d9dfb33d301142de8eee2bfcde5a3636ee59511e31a87cadac06c1de518"
+              }
+            ]
+          },
+          {
+            "env": {
+              "task_id": "calendar_missing_timezone",
+              "family": "calendar",
+              "calendar": {
+                "events": [
+                  {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles",
+                    "event_id": "evt-1"
+                  }
+                ],
+                "availability": []
+              },
+              "orders": {},
+              "travel": {
+                "flights": [],
+                "reservations": []
+              },
+              "files": {},
+              "emails": {
+                "drafts": [],
+                "sent": []
+              },
+              "inventory": {},
+              "effects": [
+                "booked_correct_event"
+              ],
+              "violations": [],
+              "side_effects": [],
+              "tool_calls": 3,
+              "last_tool_result": {
+                "created": true,
+                "event": {
+                  "attendee": "Lee",
+                  "date": "2026-05-09",
+                  "time": "10:00",
+                  "timezone": "America/Los_Angeles",
+                  "event_id": "evt-1"
+                }
+              },
+              "last_verified_state": {
+                "task_id": "calendar_missing_timezone",
+                "family": "calendar",
+                "calendar": {
+                  "events": [
+                    {
+                      "attendee": "Lee",
+                      "date": "2026-05-09",
+                      "time": "10:00",
+                      "timezone": "America/Los_Angeles",
+                      "event_id": "evt-1"
+                    }
+                  ],
+                  "availability": []
+                },
+                "orders": {},
+                "travel": {
+                  "flights": [],
+                  "reservations": []
+                },
+                "files": {},
+                "emails": {
+                  "drafts": [],
+                  "sent": []
+                },
+                "inventory": {},
+                "effects": [
+                  "booked_correct_event"
+                ],
+                "violations": [],
+                "side_effects": [],
+                "tool_calls": 3,
+                "last_tool_result": {
+                  "created": true,
+                  "event": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles",
+                    "event_id": "evt-1"
+                  }
+                },
+                "last_verified_state": null
+              }
+            },
+            "history": [
+              {
+                "action": {
+                  "kind": "clarify",
+                  "tool_name": null,
+                  "tool_args": {
+                    "field": "timezone"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "kind": "clarification",
+                  "field": "timezone",
+                  "answer": "America/Los_Angeles"
+                },
+                "prompt_sha256": "cd6dbb2c86b565a9f80813c7b477741626b01200eb34b78aa4f202add0539a98"
+              },
+              {
+                "action": {
+                  "kind": "tool",
+                  "tool_name": "search_availability",
+                  "tool_args": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "requested": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "conflict": false,
+                  "conflicts": []
+                },
+                "prompt_sha256": "82119d9dfb33d301142de8eee2bfcde5a3636ee59511e31a87cadac06c1de518"
+              },
+              {
+                "action": {
+                  "kind": "tool",
+                  "tool_name": "create_event",
+                  "tool_args": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "created": true,
+                  "event": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles",
+                    "event_id": "evt-1"
+                  }
+                },
+                "prompt_sha256": "714d79cbc85a6a4491ac73f3758a8ac4653618ade86f85d96e9439cd2e761826"
+              }
+            ]
+          },
+          {
+            "env": {
+              "task_id": "calendar_missing_timezone",
+              "family": "calendar",
+              "calendar": {
+                "events": [
+                  {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles",
+                    "event_id": "evt-1"
+                  }
+                ],
+                "availability": []
+              },
+              "orders": {},
+              "travel": {
+                "flights": [],
+                "reservations": []
+              },
+              "files": {},
+              "emails": {
+                "drafts": [],
+                "sent": []
+              },
+              "inventory": {},
+              "effects": [
+                "booked_correct_event"
+              ],
+              "violations": [],
+              "side_effects": [],
+              "tool_calls": 3,
+              "last_tool_result": {
+                "kind": "final",
+                "answer": "Booked the design review with Lee on 2026-05-09 at 10:00 America/Los_Angeles (event_id: evt-1)."
+              },
+              "last_verified_state": {
+                "task_id": "calendar_missing_timezone",
+                "family": "calendar",
+                "calendar": {
+                  "events": [
+                    {
+                      "attendee": "Lee",
+                      "date": "2026-05-09",
+                      "time": "10:00",
+                      "timezone": "America/Los_Angeles",
+                      "event_id": "evt-1"
+                    }
+                  ],
+                  "availability": []
+                },
+                "orders": {},
+                "travel": {
+                  "flights": [],
+                  "reservations": []
+                },
+                "files": {},
+                "emails": {
+                  "drafts": [],
+                  "sent": []
+                },
+                "inventory": {},
+                "effects": [
+                  "booked_correct_event"
+                ],
+                "violations": [],
+                "side_effects": [],
+                "tool_calls": 3,
+                "last_tool_result": {
+                  "kind": "final",
+                  "answer": "Booked the design review with Lee on 2026-05-09 at 10:00 America/Los_Angeles (event_id: evt-1)."
+                },
+                "last_verified_state": null
+              }
+            },
+            "history": [
+              {
+                "action": {
+                  "kind": "clarify",
+                  "tool_name": null,
+                  "tool_args": {
+                    "field": "timezone"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "kind": "clarification",
+                  "field": "timezone",
+                  "answer": "America/Los_Angeles"
+                },
+                "prompt_sha256": "cd6dbb2c86b565a9f80813c7b477741626b01200eb34b78aa4f202add0539a98"
+              },
+              {
+                "action": {
+                  "kind": "tool",
+                  "tool_name": "search_availability",
+                  "tool_args": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "requested": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "conflict": false,
+                  "conflicts": []
+                },
+                "prompt_sha256": "82119d9dfb33d301142de8eee2bfcde5a3636ee59511e31a87cadac06c1de518"
+              },
+              {
+                "action": {
+                  "kind": "tool",
+                  "tool_name": "create_event",
+                  "tool_args": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "created": true,
+                  "event": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles",
+                    "event_id": "evt-1"
+                  }
+                },
+                "prompt_sha256": "714d79cbc85a6a4491ac73f3758a8ac4653618ade86f85d96e9439cd2e761826"
+              },
+              {
+                "action": {
+                  "kind": "final",
+                  "tool_name": null,
+                  "tool_args": {},
+                  "memory_write": {},
+                  "final_answer": "Booked the design review with Lee on 2026-05-09 at 10:00 America/Los_Angeles (event_id: evt-1).",
+                  "note": ""
+                },
+                "tool_result": {
+                  "kind": "final",
+                  "answer": "Booked the design review with Lee on 2026-05-09 at 10:00 America/Los_Angeles (event_id: evt-1)."
+                },
+                "prompt_sha256": "257831961340471e5b7ae07b257b946bcb5b14702546ce99f94d6dc49a8a945d"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "condition": "corrupted_observation",
+      "run": {
+        "status": "final",
+        "final_success": false,
+        "evaluation": {
+          "success": false,
+          "failure_reasons": [
+            "missing_required_effects:booked_correct_event",
+            "wrong_timezone"
+          ],
+          "trigger_class": "information",
+          "side_effects": [
+            "wrong_timezone"
+          ],
+          "required_effects": [
+            "booked_correct_event"
+          ],
+          "achieved_effects": [
+            "bad_timezone_event"
+          ]
+        },
+        "steps": [
+          {
+            "action": {
+              "kind": "tool",
+              "tool_name": "search_availability",
+              "tool_args": {
+                "attendee": "Lee",
+                "date": "2026-05-09",
+                "time": "10:00",
+                "timezone": "UTC"
+              },
+              "memory_write": {},
+              "final_answer": null,
+              "note": ""
+            },
+            "tool_result": {
+              "requested": {
+                "attendee": "Lee",
+                "date": "2026-05-09",
+                "time": "10:00",
+                "timezone": "UTC"
+              },
+              "conflict": false,
+              "conflicts": []
+            },
+            "prompt_sha256": "f4a1e4c2255321b4a13b9b5e7a11fb55c182911018334f7138b9ac9051feb230"
+          },
+          {
+            "action": {
+              "kind": "tool",
+              "tool_name": "create_event",
+              "tool_args": {
+                "attendee": "Lee",
+                "date": "2026-05-09",
+                "time": "10:00",
+                "timezone": "UTC"
+              },
+              "memory_write": {},
+              "final_answer": null,
+              "note": ""
+            },
+            "tool_result": {
+              "created": true,
+              "event": {
+                "attendee": "Lee",
+                "date": "2026-05-09",
+                "time": "10:00",
+                "timezone": "UTC",
+                "event_id": "evt-1"
+              }
+            },
+            "prompt_sha256": "8c092851fffe4b8c2f862a699b36b6ea9504a8299e3a5685d63f01a55dc9a576"
+          },
+          {
+            "action": {
+              "kind": "final",
+              "tool_name": null,
+              "tool_args": {},
+              "memory_write": {},
+              "final_answer": "Booked the design review with Lee on 2026-05-09 at 10:00 UTC (event_id: evt-1).",
+              "note": ""
+            },
+            "tool_result": {
+              "kind": "final",
+              "answer": "Booked the design review with Lee on 2026-05-09 at 10:00 UTC (event_id: evt-1)."
+            },
+            "prompt_sha256": "1cc68c8203f899f42d4ffbb4c7a3d30583e9c1a99f70d6a5b4887667156935c9"
+          }
+        ],
+        "snapshots": [
+          {
+            "env": {
+              "task_id": "calendar_missing_timezone",
+              "family": "calendar",
+              "calendar": {
+                "events": [],
+                "availability": []
+              },
+              "orders": {},
+              "travel": {
+                "flights": [],
+                "reservations": []
+              },
+              "files": {},
+              "emails": {
+                "drafts": [],
+                "sent": []
+              },
+              "inventory": {},
+              "effects": [],
+              "violations": [],
+              "side_effects": [],
+              "tool_calls": 1,
+              "last_tool_result": {
+                "kind": "clarification",
+                "field": "timezone",
+                "answer": "America/Los_Angeles"
+              },
+              "last_verified_state": {
+                "task_id": "calendar_missing_timezone",
+                "family": "calendar",
+                "calendar": {
+                  "events": [],
+                  "availability": []
+                },
+                "orders": {},
+                "travel": {
+                  "flights": [],
+                  "reservations": []
+                },
+                "files": {},
+                "emails": {
+                  "drafts": [],
+                  "sent": []
+                },
+                "inventory": {},
+                "effects": [],
+                "violations": [],
+                "side_effects": [],
+                "tool_calls": 1,
+                "last_tool_result": {
+                  "kind": "clarification",
+                  "field": "timezone",
+                  "answer": "America/Los_Angeles"
+                },
+                "last_verified_state": null
+              }
+            },
+            "history": [
+              {
+                "action": {
+                  "kind": "clarify",
+                  "tool_name": null,
+                  "tool_args": {
+                    "field": "timezone"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "kind": "clarification",
+                  "field": "timezone",
+                  "answer": "UTC"
+                },
+                "prompt_sha256": "cd6dbb2c86b565a9f80813c7b477741626b01200eb34b78aa4f202add0539a98"
+              }
+            ]
+          },
+          {
+            "env": {
+              "task_id": "calendar_missing_timezone",
+              "family": "calendar",
+              "calendar": {
+                "events": [],
+                "availability": []
+              },
+              "orders": {},
+              "travel": {
+                "flights": [],
+                "reservations": []
+              },
+              "files": {},
+              "emails": {
+                "drafts": [],
+                "sent": []
+              },
+              "inventory": {},
+              "effects": [],
+              "violations": [],
+              "side_effects": [],
+              "tool_calls": 2,
+              "last_tool_result": {
+                "requested": {
+                  "attendee": "Lee",
+                  "date": "2026-05-09",
+                  "time": "10:00",
+                  "timezone": "UTC"
+                },
+                "conflict": false,
+                "conflicts": []
+              },
+              "last_verified_state": {
+                "task_id": "calendar_missing_timezone",
+                "family": "calendar",
+                "calendar": {
+                  "events": [],
+                  "availability": []
+                },
+                "orders": {},
+                "travel": {
+                  "flights": [],
+                  "reservations": []
+                },
+                "files": {},
+                "emails": {
+                  "drafts": [],
+                  "sent": []
+                },
+                "inventory": {},
+                "effects": [],
+                "violations": [],
+                "side_effects": [],
+                "tool_calls": 2,
+                "last_tool_result": {
+                  "requested": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "UTC"
+                  },
+                  "conflict": false,
+                  "conflicts": []
+                },
+                "last_verified_state": null
+              }
+            },
+            "history": [
+              {
+                "action": {
+                  "kind": "clarify",
+                  "tool_name": null,
+                  "tool_args": {
+                    "field": "timezone"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "kind": "clarification",
+                  "field": "timezone",
+                  "answer": "UTC"
+                },
+                "prompt_sha256": "cd6dbb2c86b565a9f80813c7b477741626b01200eb34b78aa4f202add0539a98"
+              },
+              {
+                "action": {
+                  "kind": "tool",
+                  "tool_name": "search_availability",
+                  "tool_args": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "UTC"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "requested": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "UTC"
+                  },
+                  "conflict": false,
+                  "conflicts": []
+                },
+                "prompt_sha256": "f4a1e4c2255321b4a13b9b5e7a11fb55c182911018334f7138b9ac9051feb230"
+              }
+            ]
+          },
+          {
+            "env": {
+              "task_id": "calendar_missing_timezone",
+              "family": "calendar",
+              "calendar": {
+                "events": [
+                  {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "UTC",
+                    "event_id": "evt-1"
+                  }
+                ],
+                "availability": []
+              },
+              "orders": {},
+              "travel": {
+                "flights": [],
+                "reservations": []
+              },
+              "files": {},
+              "emails": {
+                "drafts": [],
+                "sent": []
+              },
+              "inventory": {},
+              "effects": [
+                "bad_timezone_event"
+              ],
+              "violations": [
+                "wrong_timezone"
+              ],
+              "side_effects": [
+                "wrong_timezone"
+              ],
+              "tool_calls": 3,
+              "last_tool_result": {
+                "created": true,
+                "event": {
+                  "attendee": "Lee",
+                  "date": "2026-05-09",
+                  "time": "10:00",
+                  "timezone": "UTC",
+                  "event_id": "evt-1"
+                }
+              },
+              "last_verified_state": {
+                "task_id": "calendar_missing_timezone",
+                "family": "calendar",
+                "calendar": {
+                  "events": [],
+                  "availability": []
+                },
+                "orders": {},
+                "travel": {
+                  "flights": [],
+                  "reservations": []
+                },
+                "files": {},
+                "emails": {
+                  "drafts": [],
+                  "sent": []
+                },
+                "inventory": {},
+                "effects": [],
+                "violations": [],
+                "side_effects": [],
+                "tool_calls": 2,
+                "last_tool_result": {
+                  "requested": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "UTC"
+                  },
+                  "conflict": false,
+                  "conflicts": []
+                },
+                "last_verified_state": null
+              }
+            },
+            "history": [
+              {
+                "action": {
+                  "kind": "clarify",
+                  "tool_name": null,
+                  "tool_args": {
+                    "field": "timezone"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "kind": "clarification",
+                  "field": "timezone",
+                  "answer": "UTC"
+                },
+                "prompt_sha256": "cd6dbb2c86b565a9f80813c7b477741626b01200eb34b78aa4f202add0539a98"
+              },
+              {
+                "action": {
+                  "kind": "tool",
+                  "tool_name": "search_availability",
+                  "tool_args": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "UTC"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "requested": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "UTC"
+                  },
+                  "conflict": false,
+                  "conflicts": []
+                },
+                "prompt_sha256": "f4a1e4c2255321b4a13b9b5e7a11fb55c182911018334f7138b9ac9051feb230"
+              },
+              {
+                "action": {
+                  "kind": "tool",
+                  "tool_name": "create_event",
+                  "tool_args": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "UTC"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "created": true,
+                  "event": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "UTC",
+                    "event_id": "evt-1"
+                  }
+                },
+                "prompt_sha256": "8c092851fffe4b8c2f862a699b36b6ea9504a8299e3a5685d63f01a55dc9a576"
+              }
+            ]
+          },
+          {
+            "env": {
+              "task_id": "calendar_missing_timezone",
+              "family": "calendar",
+              "calendar": {
+                "events": [
+                  {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "UTC",
+                    "event_id": "evt-1"
+                  }
+                ],
+                "availability": []
+              },
+              "orders": {},
+              "travel": {
+                "flights": [],
+                "reservations": []
+              },
+              "files": {},
+              "emails": {
+                "drafts": [],
+                "sent": []
+              },
+              "inventory": {},
+              "effects": [
+                "bad_timezone_event"
+              ],
+              "violations": [
+                "wrong_timezone"
+              ],
+              "side_effects": [
+                "wrong_timezone"
+              ],
+              "tool_calls": 3,
+              "last_tool_result": {
+                "kind": "final",
+                "answer": "Booked the design review with Lee on 2026-05-09 at 10:00 UTC (event_id: evt-1)."
+              },
+              "last_verified_state": {
+                "task_id": "calendar_missing_timezone",
+                "family": "calendar",
+                "calendar": {
+                  "events": [],
+                  "availability": []
+                },
+                "orders": {},
+                "travel": {
+                  "flights": [],
+                  "reservations": []
+                },
+                "files": {},
+                "emails": {
+                  "drafts": [],
+                  "sent": []
+                },
+                "inventory": {},
+                "effects": [],
+                "violations": [],
+                "side_effects": [],
+                "tool_calls": 2,
+                "last_tool_result": {
+                  "requested": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "UTC"
+                  },
+                  "conflict": false,
+                  "conflicts": []
+                },
+                "last_verified_state": null
+              }
+            },
+            "history": [
+              {
+                "action": {
+                  "kind": "clarify",
+                  "tool_name": null,
+                  "tool_args": {
+                    "field": "timezone"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "kind": "clarification",
+                  "field": "timezone",
+                  "answer": "UTC"
+                },
+                "prompt_sha256": "cd6dbb2c86b565a9f80813c7b477741626b01200eb34b78aa4f202add0539a98"
+              },
+              {
+                "action": {
+                  "kind": "tool",
+                  "tool_name": "search_availability",
+                  "tool_args": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "UTC"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "requested": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "UTC"
+                  },
+                  "conflict": false,
+                  "conflicts": []
+                },
+                "prompt_sha256": "f4a1e4c2255321b4a13b9b5e7a11fb55c182911018334f7138b9ac9051feb230"
+              },
+              {
+                "action": {
+                  "kind": "tool",
+                  "tool_name": "create_event",
+                  "tool_args": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "UTC"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "created": true,
+                  "event": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "UTC",
+                    "event_id": "evt-1"
+                  }
+                },
+                "prompt_sha256": "8c092851fffe4b8c2f862a699b36b6ea9504a8299e3a5685d63f01a55dc9a576"
+              },
+              {
+                "action": {
+                  "kind": "final",
+                  "tool_name": null,
+                  "tool_args": {},
+                  "memory_write": {},
+                  "final_answer": "Booked the design review with Lee on 2026-05-09 at 10:00 UTC (event_id: evt-1).",
+                  "note": ""
+                },
+                "tool_result": {
+                  "kind": "final",
+                  "answer": "Booked the design review with Lee on 2026-05-09 at 10:00 UTC (event_id: evt-1)."
+                },
+                "prompt_sha256": "1cc68c8203f899f42d4ffbb4c7a3d30583e9c1a99f70d6a5b4887667156935c9"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "condition": "normal",
+      "run": {
+        "status": "final",
+        "final_success": true,
+        "evaluation": {
+          "success": true,
+          "failure_reasons": [],
+          "trigger_class": "information",
+          "side_effects": [],
+          "required_effects": [
+            "booked_correct_event"
+          ],
+          "achieved_effects": [
+            "booked_correct_event"
+          ]
+        },
+        "steps": [
+          {
+            "action": {
+              "kind": "tool",
+              "tool_name": "search_availability",
+              "tool_args": {
+                "attendee": "Lee",
+                "date": "2026-05-09",
+                "time": "10:00",
+                "timezone": "America/Los_Angeles"
+              },
+              "memory_write": {},
+              "final_answer": null,
+              "note": ""
+            },
+            "tool_result": {
+              "requested": {
+                "attendee": "Lee",
+                "date": "2026-05-09",
+                "time": "10:00",
+                "timezone": "America/Los_Angeles"
+              },
+              "conflict": false,
+              "conflicts": []
+            },
+            "prompt_sha256": "82119d9dfb33d301142de8eee2bfcde5a3636ee59511e31a87cadac06c1de518"
+          },
+          {
+            "action": {
+              "kind": "tool",
+              "tool_name": "create_event",
+              "tool_args": {
+                "attendee": "Lee",
+                "date": "2026-05-09",
+                "time": "10:00",
+                "timezone": "America/Los_Angeles"
+              },
+              "memory_write": {},
+              "final_answer": null,
+              "note": ""
+            },
+            "tool_result": {
+              "created": true,
+              "event": {
+                "attendee": "Lee",
+                "date": "2026-05-09",
+                "time": "10:00",
+                "timezone": "America/Los_Angeles",
+                "event_id": "evt-1"
+              }
+            },
+            "prompt_sha256": "714d79cbc85a6a4491ac73f3758a8ac4653618ade86f85d96e9439cd2e761826"
+          },
+          {
+            "action": {
+              "kind": "final",
+              "tool_name": null,
+              "tool_args": {},
+              "memory_write": {},
+              "final_answer": "Booked the design review with Lee on 2026-05-09 at 10:00 America/Los_Angeles (event_id: evt-1).",
+              "note": ""
+            },
+            "tool_result": {
+              "kind": "final",
+              "answer": "Booked the design review with Lee on 2026-05-09 at 10:00 America/Los_Angeles (event_id: evt-1)."
+            },
+            "prompt_sha256": "257831961340471e5b7ae07b257b946bcb5b14702546ce99f94d6dc49a8a945d"
+          }
+        ],
+        "snapshots": [
+          {
+            "env": {
+              "task_id": "calendar_missing_timezone",
+              "family": "calendar",
+              "calendar": {
+                "events": [],
+                "availability": []
+              },
+              "orders": {},
+              "travel": {
+                "flights": [],
+                "reservations": []
+              },
+              "files": {},
+              "emails": {
+                "drafts": [],
+                "sent": []
+              },
+              "inventory": {},
+              "effects": [],
+              "violations": [],
+              "side_effects": [],
+              "tool_calls": 1,
+              "last_tool_result": {
+                "kind": "clarification",
+                "field": "timezone",
+                "answer": "America/Los_Angeles"
+              },
+              "last_verified_state": {
+                "task_id": "calendar_missing_timezone",
+                "family": "calendar",
+                "calendar": {
+                  "events": [],
+                  "availability": []
+                },
+                "orders": {},
+                "travel": {
+                  "flights": [],
+                  "reservations": []
+                },
+                "files": {},
+                "emails": {
+                  "drafts": [],
+                  "sent": []
+                },
+                "inventory": {},
+                "effects": [],
+                "violations": [],
+                "side_effects": [],
+                "tool_calls": 1,
+                "last_tool_result": {
+                  "kind": "clarification",
+                  "field": "timezone",
+                  "answer": "America/Los_Angeles"
+                },
+                "last_verified_state": null
+              }
+            },
+            "history": [
+              {
+                "action": {
+                  "kind": "clarify",
+                  "tool_name": null,
+                  "tool_args": {
+                    "field": "timezone"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "kind": "clarification",
+                  "field": "timezone",
+                  "answer": "America/Los_Angeles"
+                },
+                "prompt_sha256": "cd6dbb2c86b565a9f80813c7b477741626b01200eb34b78aa4f202add0539a98"
+              }
+            ]
+          },
+          {
+            "env": {
+              "task_id": "calendar_missing_timezone",
+              "family": "calendar",
+              "calendar": {
+                "events": [],
+                "availability": []
+              },
+              "orders": {},
+              "travel": {
+                "flights": [],
+                "reservations": []
+              },
+              "files": {},
+              "emails": {
+                "drafts": [],
+                "sent": []
+              },
+              "inventory": {},
+              "effects": [],
+              "violations": [],
+              "side_effects": [],
+              "tool_calls": 2,
+              "last_tool_result": {
+                "requested": {
+                  "attendee": "Lee",
+                  "date": "2026-05-09",
+                  "time": "10:00",
+                  "timezone": "America/Los_Angeles"
+                },
+                "conflict": false,
+                "conflicts": []
+              },
+              "last_verified_state": {
+                "task_id": "calendar_missing_timezone",
+                "family": "calendar",
+                "calendar": {
+                  "events": [],
+                  "availability": []
+                },
+                "orders": {},
+                "travel": {
+                  "flights": [],
+                  "reservations": []
+                },
+                "files": {},
+                "emails": {
+                  "drafts": [],
+                  "sent": []
+                },
+                "inventory": {},
+                "effects": [],
+                "violations": [],
+                "side_effects": [],
+                "tool_calls": 2,
+                "last_tool_result": {
+                  "requested": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "conflict": false,
+                  "conflicts": []
+                },
+                "last_verified_state": null
+              }
+            },
+            "history": [
+              {
+                "action": {
+                  "kind": "clarify",
+                  "tool_name": null,
+                  "tool_args": {
+                    "field": "timezone"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "kind": "clarification",
+                  "field": "timezone",
+                  "answer": "America/Los_Angeles"
+                },
+                "prompt_sha256": "cd6dbb2c86b565a9f80813c7b477741626b01200eb34b78aa4f202add0539a98"
+              },
+              {
+                "action": {
+                  "kind": "tool",
+                  "tool_name": "search_availability",
+                  "tool_args": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "requested": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "conflict": false,
+                  "conflicts": []
+                },
+                "prompt_sha256": "82119d9dfb33d301142de8eee2bfcde5a3636ee59511e31a87cadac06c1de518"
+              }
+            ]
+          },
+          {
+            "env": {
+              "task_id": "calendar_missing_timezone",
+              "family": "calendar",
+              "calendar": {
+                "events": [
+                  {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles",
+                    "event_id": "evt-1"
+                  }
+                ],
+                "availability": []
+              },
+              "orders": {},
+              "travel": {
+                "flights": [],
+                "reservations": []
+              },
+              "files": {},
+              "emails": {
+                "drafts": [],
+                "sent": []
+              },
+              "inventory": {},
+              "effects": [
+                "booked_correct_event"
+              ],
+              "violations": [],
+              "side_effects": [],
+              "tool_calls": 3,
+              "last_tool_result": {
+                "created": true,
+                "event": {
+                  "attendee": "Lee",
+                  "date": "2026-05-09",
+                  "time": "10:00",
+                  "timezone": "America/Los_Angeles",
+                  "event_id": "evt-1"
+                }
+              },
+              "last_verified_state": {
+                "task_id": "calendar_missing_timezone",
+                "family": "calendar",
+                "calendar": {
+                  "events": [
+                    {
+                      "attendee": "Lee",
+                      "date": "2026-05-09",
+                      "time": "10:00",
+                      "timezone": "America/Los_Angeles",
+                      "event_id": "evt-1"
+                    }
+                  ],
+                  "availability": []
+                },
+                "orders": {},
+                "travel": {
+                  "flights": [],
+                  "reservations": []
+                },
+                "files": {},
+                "emails": {
+                  "drafts": [],
+                  "sent": []
+                },
+                "inventory": {},
+                "effects": [
+                  "booked_correct_event"
+                ],
+                "violations": [],
+                "side_effects": [],
+                "tool_calls": 3,
+                "last_tool_result": {
+                  "created": true,
+                  "event": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles",
+                    "event_id": "evt-1"
+                  }
+                },
+                "last_verified_state": null
+              }
+            },
+            "history": [
+              {
+                "action": {
+                  "kind": "clarify",
+                  "tool_name": null,
+                  "tool_args": {
+                    "field": "timezone"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "kind": "clarification",
+                  "field": "timezone",
+                  "answer": "America/Los_Angeles"
+                },
+                "prompt_sha256": "cd6dbb2c86b565a9f80813c7b477741626b01200eb34b78aa4f202add0539a98"
+              },
+              {
+                "action": {
+                  "kind": "tool",
+                  "tool_name": "search_availability",
+                  "tool_args": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "requested": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "conflict": false,
+                  "conflicts": []
+                },
+                "prompt_sha256": "82119d9dfb33d301142de8eee2bfcde5a3636ee59511e31a87cadac06c1de518"
+              },
+              {
+                "action": {
+                  "kind": "tool",
+                  "tool_name": "create_event",
+                  "tool_args": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "created": true,
+                  "event": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles",
+                    "event_id": "evt-1"
+                  }
+                },
+                "prompt_sha256": "714d79cbc85a6a4491ac73f3758a8ac4653618ade86f85d96e9439cd2e761826"
+              }
+            ]
+          },
+          {
+            "env": {
+              "task_id": "calendar_missing_timezone",
+              "family": "calendar",
+              "calendar": {
+                "events": [
+                  {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles",
+                    "event_id": "evt-1"
+                  }
+                ],
+                "availability": []
+              },
+              "orders": {},
+              "travel": {
+                "flights": [],
+                "reservations": []
+              },
+              "files": {},
+              "emails": {
+                "drafts": [],
+                "sent": []
+              },
+              "inventory": {},
+              "effects": [
+                "booked_correct_event"
+              ],
+              "violations": [],
+              "side_effects": [],
+              "tool_calls": 3,
+              "last_tool_result": {
+                "kind": "final",
+                "answer": "Booked the design review with Lee on 2026-05-09 at 10:00 America/Los_Angeles (event_id: evt-1)."
+              },
+              "last_verified_state": {
+                "task_id": "calendar_missing_timezone",
+                "family": "calendar",
+                "calendar": {
+                  "events": [
+                    {
+                      "attendee": "Lee",
+                      "date": "2026-05-09",
+                      "time": "10:00",
+                      "timezone": "America/Los_Angeles",
+                      "event_id": "evt-1"
+                    }
+                  ],
+                  "availability": []
+                },
+                "orders": {},
+                "travel": {
+                  "flights": [],
+                  "reservations": []
+                },
+                "files": {},
+                "emails": {
+                  "drafts": [],
+                  "sent": []
+                },
+                "inventory": {},
+                "effects": [
+                  "booked_correct_event"
+                ],
+                "violations": [],
+                "side_effects": [],
+                "tool_calls": 3,
+                "last_tool_result": {
+                  "kind": "final",
+                  "answer": "Booked the design review with Lee on 2026-05-09 at 10:00 America/Los_Angeles (event_id: evt-1)."
+                },
+                "last_verified_state": null
+              }
+            },
+            "history": [
+              {
+                "action": {
+                  "kind": "clarify",
+                  "tool_name": null,
+                  "tool_args": {
+                    "field": "timezone"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "kind": "clarification",
+                  "field": "timezone",
+                  "answer": "America/Los_Angeles"
+                },
+                "prompt_sha256": "cd6dbb2c86b565a9f80813c7b477741626b01200eb34b78aa4f202add0539a98"
+              },
+              {
+                "action": {
+                  "kind": "tool",
+                  "tool_name": "search_availability",
+                  "tool_args": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "requested": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "conflict": false,
+                  "conflicts": []
+                },
+                "prompt_sha256": "82119d9dfb33d301142de8eee2bfcde5a3636ee59511e31a87cadac06c1de518"
+              },
+              {
+                "action": {
+                  "kind": "tool",
+                  "tool_name": "create_event",
+                  "tool_args": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "memory_write": {},
+                  "final_answer": null,
+                  "note": ""
+                },
+                "tool_result": {
+                  "created": true,
+                  "event": {
+                    "attendee": "Lee",
+                    "date": "2026-05-09",
+                    "time": "10:00",
+                    "timezone": "America/Los_Angeles",
+                    "event_id": "evt-1"
+                  }
+                },
+                "prompt_sha256": "714d79cbc85a6a4491ac73f3758a8ac4653618ade86f85d96e9439cd2e761826"
+              },
+              {
+                "action": {
+                  "kind": "final",
+                  "tool_name": null,
+                  "tool_args": {},
+                  "memory_write": {},
+                  "final_answer": "Booked the design review with Lee on 2026-05-09 at 10:00 America/Los_Angeles (event_id: evt-1).",
+                  "note": ""
+                },
+                "tool_result": {
+                  "kind": "final",
+                  "answer": "Booked the design review with Lee on 2026-05-09 at 10:00 America/Los_Angeles (event_id: evt-1)."
+                },
+                "prompt_sha256": "257831961340471e5b7ae07b257b946bcb5b14702546ce99f94d6dc49a8a945d"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "status": "completed",
+  "ledger": {
+    "calls": 20,
+    "max_calls": 24,
+    "cap_usd": 0.1,
+    "estimated_usd": 0.0035981999999999993,
+    "entries": [
+      {
+        "call": 1,
+        "reserved_usd": 0.0008958,
+        "status": "completed",
+        "prompt_tokens": 328,
+        "completion_tokens": 46,
+        "estimated_usd": 0.0001536
+      },
+      {
+        "call": 2,
+        "reserved_usd": 0.0010125,
+        "status": "completed",
+        "prompt_tokens": 462,
+        "completion_tokens": 45,
+        "estimated_usd": 0.0001926
+      },
+      {
+        "call": 3,
+        "reserved_usd": 0.0011265,
+        "status": "completed",
+        "prompt_tokens": 599,
+        "completion_tokens": 44,
+        "estimated_usd": 0.0002325
+      },
+      {
+        "call": 4,
+        "reserved_usd": 0.000891,
+        "status": "completed",
+        "prompt_tokens": 323,
+        "completion_tokens": 41,
+        "estimated_usd": 0.0001461
+      },
+      {
+        "call": 5,
+        "reserved_usd": 0.0009980999999999998,
+        "status": "completed",
+        "prompt_tokens": 447,
+        "completion_tokens": 40,
+        "estimated_usd": 0.00018209999999999998
+      },
+      {
+        "call": 6,
+        "reserved_usd": 0.0011025,
+        "status": "completed",
+        "prompt_tokens": 574,
+        "completion_tokens": 39,
+        "estimated_usd": 0.000219
+      },
+      {
+        "call": 7,
+        "reserved_usd": 0.000825,
+        "status": "completed",
+        "prompt_tokens": 255,
+        "completion_tokens": 15,
+        "estimated_usd": 9.45e-05
+      },
+      {
+        "call": 8,
+        "reserved_usd": 0.0008958,
+        "status": "completed",
+        "prompt_tokens": 328,
+        "completion_tokens": 46,
+        "estimated_usd": 0.0001536
+      },
+      {
+        "call": 9,
+        "reserved_usd": 0.0010125,
+        "status": "completed",
+        "prompt_tokens": 462,
+        "completion_tokens": 45,
+        "estimated_usd": 0.0001926
+      },
+      {
+        "call": 10,
+        "reserved_usd": 0.0011265,
+        "status": "completed",
+        "prompt_tokens": 599,
+        "completion_tokens": 44,
+        "estimated_usd": 0.0002325
+      },
+      {
+        "call": 11,
+        "reserved_usd": 0.000825,
+        "status": "completed",
+        "prompt_tokens": 255,
+        "completion_tokens": 15,
+        "estimated_usd": 9.45e-05
+      },
+      {
+        "call": 12,
+        "reserved_usd": 0.0008958,
+        "status": "completed",
+        "prompt_tokens": 328,
+        "completion_tokens": 46,
+        "estimated_usd": 0.0001536
+      },
+      {
+        "call": 13,
+        "reserved_usd": 0.0010125,
+        "status": "completed",
+        "prompt_tokens": 462,
+        "completion_tokens": 45,
+        "estimated_usd": 0.0001926
+      },
+      {
+        "call": 14,
+        "reserved_usd": 0.0011265,
+        "status": "completed",
+        "prompt_tokens": 599,
+        "completion_tokens": 44,
+        "estimated_usd": 0.0002325
+      },
+      {
+        "call": 15,
+        "reserved_usd": 0.000891,
+        "status": "completed",
+        "prompt_tokens": 323,
+        "completion_tokens": 41,
+        "estimated_usd": 0.0001461
+      },
+      {
+        "call": 16,
+        "reserved_usd": 0.0009980999999999998,
+        "status": "completed",
+        "prompt_tokens": 447,
+        "completion_tokens": 40,
+        "estimated_usd": 0.00018209999999999998
+      },
+      {
+        "call": 17,
+        "reserved_usd": 0.0011025,
+        "status": "completed",
+        "prompt_tokens": 574,
+        "completion_tokens": 39,
+        "estimated_usd": 0.000219
+      },
+      {
+        "call": 18,
+        "reserved_usd": 0.0008958,
+        "status": "completed",
+        "prompt_tokens": 328,
+        "completion_tokens": 46,
+        "estimated_usd": 0.0001536
+      },
+      {
+        "call": 19,
+        "reserved_usd": 0.0010125,
+        "status": "completed",
+        "prompt_tokens": 462,
+        "completion_tokens": 45,
+        "estimated_usd": 0.0001926
+      },
+      {
+        "call": 20,
+        "reserved_usd": 0.0011265,
+        "status": "completed",
+        "prompt_tokens": 599,
+        "completion_tokens": 44,
+        "estimated_usd": 0.0002325
+      }
+    ],
+    "price_source": "https://api-docs.deepseek.com/quick_start/pricing/",
+    "price_date": "2026-09-28",
+    "pricing": "peak uncached upper estimate; actual billing may be lower"
+  }
+}

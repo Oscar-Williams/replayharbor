@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="csrf-token" content="__TOKEN__"><title>ReplayHarbor · 复验证据工作台</title><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script></head>
+<body><header><div><strong>ReplayHarbor</strong><span>复验证据工作台</span></div><span class="mode">本机 · 无密钥模拟</span></header>
+<main><aside><h1>安排一次复验</h1><p class="muted">先检查候选，再决定下一步。</p><form id="run-form">
+<label for="task">案例</label><select id="task" required></select><p id="goal" class="hint"></p>
+<label for="strategy">探索策略</label><select id="strategy"><option value="uniform">均匀覆盖</option><option value="adaptive">自适应探索 · 实验性</option><option value="coarse">粗粒度扫描</option></select>
+<label for="budget">探索预算（次）</label><input id="budget" type="number" min="0" max="64" value="24" required>
+<label class="check"><input id="confirm" type="checkbox">独立确认候选（最多 1024 次）</label>
+<label for="repair">修订对照</label><select id="repair"><option value="">暂不比较</option></select><p class="hint">选择上游模拟干预后，追加 128 对复验。</p>
+<button id="run" type="submit">开始复验</button><button id="cancel" type="button" class="secondary" disabled>取消运行</button></form>
+<section class="import"><h2>查看已有证据</h2><label for="import-file">导入报告 JSON</label><input id="import-file" type="file" accept=".json,application/json"><p class="hint">文件仅在当前浏览器解析。导入记录仅供查看。</p><button id="model-summary" class="secondary">查看真实模型实验</button></section></aside>
+<article><div class="section-head"><div><p class="eyebrow">EVIDENCE / 证据</p><h2 id="result-title">等待选择案例</h2></div><a id="download" hidden>下载问题包</a></div>
+<div id="status" role="status" aria-live="polite">选择案例和预算，即可开始。当前页面不会发起付费 API 调用。</div>
+<section id="results" hidden><div class="metrics"><div><small>候选位置</small><strong id="candidate">—</strong></div><div><small>覆盖比例</small><strong id="coverage">—</strong></div><div><small>已用复验</small><strong id="attempts">—</strong></div></div>
+<h3>前缀覆盖</h3><div id="prefix-map" aria-label="各前缀覆盖图"></div><div class="table-wrap"><table><thead><tr><th>前缀</th><th>样本数</th><th>失败率</th><th>描述性区间</th></tr></thead><tbody id="prefix-rows"></tbody></table></div>
+<div class="decisions"><section><h3>独立确认</h3><p id="confirmation">未运行</p></section><section><h3>修订效果</h3><p id="revision">未运行</p></section></div>
+<section class="next"><h3>建议下一步</h3><p id="next-action"></p><p class="hint">候选反映复验证据中的关联；最早位置与根因仍需验证。</p></section>
+<details><summary>完整记录</summary><pre id="raw"></pre></details></section>
+<section id="model-results" hidden><h3>真实推理 · 合成任务</h3><p>任务契约修订前后的工程回归；样本不足以外推整体效果。</p><div id="model-table"></div><h3>固定契约故障对照</h3><p>同一日历案例下修改工具反馈，再恢复到澄清前重新推理；每个条件重复两次。</p><div id="control-table"></div></section>
+<footer>证据归属：Delta-MFP 环境与复验基础 · Oscar-Williams / ReplayHarbor 工作流</footer></article></main></body></html>
