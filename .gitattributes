@@ -5,6 +5,6 @@
 *.sh text eol=lf
 .githooks/* text eol=lf
 # Evidence hashes depend on exact bytes.
-examples/** -text
-experiments/** -text
+examples/** -text whitespace=cr-at-eol
+experiments/** -text whitespace=cr-at-eol
 *.png binary

@@ -6,10 +6,18 @@ build-backend = "setuptools.build_meta"
 name = "replayharbor"
 version = "0.1.0"
 description = "Budget-aware agent replay evidence and developer handoff"
+readme = "README.md"
 requires-python = ">=3.11"
 authors = [{name = "Oscar-Williams"}]
 license = {text = "MIT"}
 dependencies = ["python-dotenv==1.2.3"]
+
+[project.urls]
+Repository = "https://github.com/Oscar-Williams/replayharbor"
+Issues = "https://github.com/Oscar-Williams/replayharbor/issues"
+
+[tool.setuptools]
+license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md"]
 
 [project.scripts]
 replayharbor = "replayharbor.cli:main"
